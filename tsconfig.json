@@ -1,0 +1,33 @@
+{
+    "compilerOptions": {
+        "module": "commonjs",
+        "target": "es5",
+        "sourceMap": true,
+        "allowJs": false,
+        "moduleResolution": "node",
+        "jsx": "react",
+        "rootDir": "./src",
+        "outDir": "./dist/lib",
+        "forceConsistentCasingInFileNames": true,
+        "noImplicitReturns": true,
+        "noImplicitThis": true,
+        "noImplicitAny": true,
+        "strict": true,
+        "suppressImplicitAnyIndexErrors": true,
+        "noUnusedLocals": true,
+        "allowSyntheticDefaultImports": true,
+        "lib": [
+            "es5",
+            "es2015.promise",
+            "dom",
+            "es2015"
+        ],
+        "declaration": true
+    },
+    "files": [
+        "./src/all.ts",
+        "./src/std.ts"
+    ],
+    "compileOnSave": false,
+    "buildOnSave": false
+}

@@ -1,0 +1,66 @@
+.lto-checkbox {
+    display: block;
+    position: relative;
+    cursor: pointer;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+
+/* Hide the browser's default checkbox */
+.lto-checkbox input {
+    position: absolute;
+    opacity: 0;
+}
+
+/* Create a custom checkbox */
+.lto-checkbox .checkmark {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 18px;
+    width: 18px;
+    background-color: transparent;
+    border: 1px solid #00FFC8;
+    border-radius: 3px;
+}
+
+/* On mouse-over, add a grey background color */
+.lto-checkbox:hover input ~ .checkmark {
+    background-color: #00FFC8;
+}
+
+/* When the checkbox is checked, add a blue background */
+.lto-checkbox input:checked ~ .checkmark {
+    background-color: transparent;
+    border: 1px solid #00FFC8;
+}
+
+/* Create the checkmark/indicator (hidden when not checked) */
+.lto-checkbox .checkmark:after {
+    content: "";
+    position: absolute;
+    display: none;
+    left: 4px;
+    top: 0;
+    width: 8px;
+    height: 14px;
+    border: solid white;
+    border-width: 0 3px 3px 0;
+    -webkit-transform: rotate(45deg);
+    -ms-transform: rotate(45deg);
+    transform: rotate(45deg);
+}
+
+/* Show the checkmark when checked */
+.lto-checkbox input:checked ~ .checkmark:after {
+    display: block;
+}
+
+.lto-checkbox > .text {
+    float: left;
+    padding-left:40px;
+    font-size: 14px;
+    font-weight: 600;
+}

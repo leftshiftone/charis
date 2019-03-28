@@ -1,0 +1,65 @@
+.lto-burgermenu > label {
+    display: inline-block;
+    margin-left: 20px;
+    cursor: pointer;
+    border-bottom: 4px solid black;
+    width: 28px;
+    transition: border-bottom 1s ease-in-out;
+    -webkit-transition: border-bottom 1s ease-in-out;
+}
+.lto-burgermenu > label::-moz-focus-inner {
+    border: 0;
+    padding: 0;
+}
+
+.lto-burgermenu > label::before {
+    content: "";
+    display: block;
+    border-bottom: 4px solid black;
+    width: 100%;
+    margin-bottom: 5px;
+    transition: transform 0.5s ease-in-out;
+    -webkit-transition: -webkit-transform 0.5s ease-in-out;
+}
+.lto-burgermenu > label::after {
+    content: "";
+    display: block;
+    border-bottom: 4px solid black;
+    width: 100%;
+    margin-bottom: 5px;
+    transition: transform 0.5s ease-in-out;
+    -webkit-transition: -webkit-transform 0.5s ease-in-out;
+}
+.lto-burgermenu > input {
+    display: none;
+}
+.lto-burgermenu > input:checked ~ label {
+    border-bottom: 4px solid transparent;
+    transition: border-bottom 0.8s ease-in-out;
+    -webkit-transition: border-bottom 0.8s ease-in-out;
+}
+.lto-burgermenu > input:checked ~ ::before {
+    transform: rotate(-45deg) translateY(1px) translateX(-3px);
+    -webkit-transform: rotate(-45deg) translateY(1px) translateX(-3px);
+    transition: transform 0.5s ease-in-out;
+    -webkit-transition: -webkit-transform 0.5s ease-in-out;
+}
+.lto-burgermenu > input:checked ~ ::after {
+    transform: rotate(45deg) translateY(-4px) translateX(-5px);
+    -webkit-transform: rotate(45deg) translateY(-4px) translateX(-5px);
+    transition: transform 0.5s ease-in-out;
+    -webkit-transition: -webkit-transform 0.5s ease-in-out;
+}
+.lto-burgermenu > nav {
+    overflow: hidden;
+    max-height: 0;
+    margin-top:-24px;
+}
+.lto-burgermenu > nav li {
+    list-style-type: none;
+}
+.lto-burgermenu > input:checked ~ .nav {
+    max-height: 500px;
+    transition: all 0.5s ease-in-out;
+    background:white;
+}

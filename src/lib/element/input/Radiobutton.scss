@@ -1,0 +1,64 @@
+.lto-radiobutton  {
+    display: inline-block;
+    position: relative;
+    cursor: pointer;
+    font-size: 22px;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    margin-left: 10px;
+}
+
+/* Hide the browser's default radio button */
+.lto-radiobutton input {
+    position: absolute;
+    opacity: 0;
+}
+
+/* Create a custom radio button */
+.lto-radiobutton .checkmark {
+    position: absolute;
+    top: 3px;
+    left: 0;
+    height: 18px;
+    width: 18px;
+    background-color: transparent;
+    border: 1px solid #00FFC8;
+    border-radius: 50%;
+    margin-top: 5px;
+}
+
+/* On mouse-over, add a grey background color */
+.lto-radiobutton :hover input ~ .checkmark {
+    background-color: #00FFC8;
+}
+
+/* When the radio button is checked, add a blue background */
+.lto-radiobutton  input:checked ~ .checkmark {
+    background-color: transparent;
+}
+
+/* Create the indicator (the dot/circle - hidden when not checked) */
+.lto-radiobutton .checkmark:after {
+    content: "";
+    position: absolute;
+    display: none;
+    top: 4px;
+    left: 4px;
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: white;
+}
+
+/* Show the indicator (dot/circle) when checked */
+.lto-radiobutton  input:checked ~ .checkmark:after {
+    display: block;
+}
+
+.lto-radiobutton > .text {
+    padding-left: 25px;
+    font-size: 14px;
+    font-weight: 400;
+}

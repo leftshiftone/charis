@@ -1,0 +1,33 @@
+/*
+@font-face {
+    font-family: 'Raleway-Regular';
+    src: url('./asset/Raleway-Regular.ttf');
+}
+
+* {
+    font-family: Raleway-Regular, serif;
+}
+*/
+
+.lto-block {
+    display: block;
+    width: 100%;
+}
+.lto-left {
+    float:left;
+}
+.lto-inline {
+    display: inline;
+}
+
+a {
+    color: inherit !important;
+    text-decoration: none;
+    &:hover {
+        color:inherit !important;
+        text-decoration: none !important;
+    }
+}
+.lto-invalid {
+    border: 1px solid orangered !important;
+}

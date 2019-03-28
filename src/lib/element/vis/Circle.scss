@@ -1,0 +1,24 @@
+.lto-circle circle:last-of-type {
+    animation: circle-chart-fill 2s reverse;
+    transform: rotate(-90deg);
+    transform-origin: center;
+}
+
+.lto-circle g {
+    animation: circle-chart-appear 2s forwards;
+    opacity: 0;
+    transform: translateY(0.7em);
+}
+
+@keyframes circle-chart-fill {
+    to {
+        stroke-dasharray: 0 100;
+    }
+}
+
+@keyframes circle-chart-appear {
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}

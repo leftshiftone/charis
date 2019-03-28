@@ -1,0 +1,17 @@
+.lto-dropdown-separator {
+    list-style-type: none;
+}
+.lto-dropdown-separator:after {
+    content: "";
+    border-top: 1px solid grey;
+    display: block;
+    margin-bottom: 7px;
+    opacity: 0;
+    z-index: -1000;
+    transition: opacity 0.25s ease-out;
+}
+ul.collapsed > .lto-dropdown-separator:after {
+    opacity: 1;
+    z-index: 1000;
+    transition: opacity 0.25s ease-out;
+}

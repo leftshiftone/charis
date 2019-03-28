@@ -1,0 +1,46 @@
+.lto-switch {
+    width: 160px;
+    height: 36px;
+    position: relative;
+    border-radius: 6px;
+    overflow: hidden;
+    user-select: none;
+    cursor: pointer;
+}
+
+.lto-switch .inner-container {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: inherit;
+    height: inherit;
+    text-transform: uppercase;
+    font-size: .6em;
+    letter-spacing: .2em;
+    color: black;
+    transition: .3s cubic-bezier(0,0,0,1);
+}
+.lto-switch .inner-container:nth-child(1) {
+    background: lightgrey;
+}
+.lto-switch .inner-container:nth-child(2) {
+    background: rgb(0, 255, 200);
+    clip-path: inset(0 50% 0 0);
+}
+
+.lto-switch .toggle {
+    width: 50%;
+    position: absolute;
+    height: inherit;
+    display: flex;
+    box-sizing: border-box;
+}
+
+.lto-switch .toggle p {
+    margin: auto;
+    font-size: 14px;
+}
+
+.lto-switch .toggle:nth-child(1) {
+    right: 0;
+}

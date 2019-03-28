@@ -1,0 +1,46 @@
+.lto-modal {
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: rgba(0, 0, 0, 0.95);
+    z-index: -1000;
+    opacity: 0;
+    transition: opacity 1s ease;
+    height: 100%;
+}
+.lto-modal.visible {
+    opacity: 1;
+    z-index: 1000;
+    transition: opacity 1s ease;
+}
+.lto-modal > .lto-modal-block > h2 {
+    display: inline-block;
+    margin: 0;
+    color: white;
+}
+.lto-modal > .lto-modal-block {
+    margin: 75px auto;
+    padding: 20px;
+    background: rgb(30, 30, 40);
+    border: none;
+    width: 300px;
+    box-shadow: 0 0 50px rgba(0, 0, 0, 0.5);
+    position: relative;
+}
+.lto-modal > .lto-modal-block > button:first-of-type {
+    float: right;
+    border: none;
+    background: transparent;
+    font-size: 40px;
+    font-weight: bold;
+    margin-top: -10px;
+    outline: 0;
+    cursor: pointer;
+    padding: 0;
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    color: white;
+}

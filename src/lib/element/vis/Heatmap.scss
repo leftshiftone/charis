@@ -1,0 +1,12 @@
+.lto-vis-heatmap > svg {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.lto-vis-heatmap .axis text {
+    fill: white !important;
+}
+.lto-vis-heatmap .axis line {
+    stroke: white !important;
+}

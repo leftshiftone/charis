@@ -1,0 +1,65 @@
+.lto-accordion {
+    background: rgb(25, 70, 75);
+    color: white;
+    margin-bottom: 2px;
+    & fieldset {
+        display: inline-block;
+        width: 25%;
+        padding: 0;
+        margin: 0;
+        border: none;
+        & > label {
+            width: 100%;
+            font-size: 12px;
+            color: gray;
+            margin: 0;
+            display: inline-block;
+        }
+        & > input {
+            border: none;
+            width: 90%;
+            padding-left: 0;
+        }
+        &:first-of-type {
+            & label {
+                padding-left: 12px;
+            }
+            & input {
+                padding-left: 12px;
+            }
+        }
+    }
+    & svg {
+        cursor: pointer;
+    }
+
+    &.lto-collapsed {
+        & .lto-accordion-content {
+            max-height: 0;
+            transition: max-height 0.25s cubic-bezier(0, 1, 0, 1);
+            visibility: hidden;
+            z-index: -1000;
+        }
+    }
+
+    & .lto-accordion-content {
+        max-height: 1000px;
+        transition: max-height 0.25s ease-out;
+        z-index: 1000;
+        padding-bottom: 5px;
+        & input {
+            width: 95%;
+            background: rgb(40, 40, 40);
+            border: none;
+            margin: 1px 5px 1px 5px;
+            border-radius: 3px;
+        }
+    }
+}
+
+.lto-accordion.lto-collapsed .lto-collapsible {
+    opacity: 0;
+}
+.lto-accordion:not(.lto-collapsed) .lto-collapsible {
+    opacity: 1;
+}

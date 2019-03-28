@@ -1,0 +1,31 @@
+.lto-seventythirty-layout {
+    height: 100%;
+}
+
+.lto-seventythirty-layout > div:first-of-type {
+    width: 70%;
+    height: 100%;
+    float: left;
+    padding: 5px;
+}
+
+.lto-seventythirty-layout > div:first-of-type > div {
+    height: 100%;
+    border-radius: 5px;
+}
+
+.lto-seventythirty-layout > div:last-of-type {
+    width: 30%;
+    height: 100%;
+    float: left;
+}
+
+.lto-seventythirty-layout > div:last-of-type > div {
+    height: 50%;
+    padding: 5px;
+}
+
+.lto-seventythirty-layout > div:last-of-type > div > div {
+    height: 100%;
+    border-radius: 5px;
+}

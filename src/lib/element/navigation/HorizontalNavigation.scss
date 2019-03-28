@@ -1,0 +1,57 @@
+.lto-navigation-horizontal {
+    height: 60px;
+    width: 85%;
+    float: left;
+    border-bottom: 1px solid #5f6978;
+    -webkit-transition: width 0.25s;
+    transition: width 0.25s;
+    & span {
+        color: #5f6978;
+    }
+    & g {
+        fill: #5f6978;
+    }
+    & ul {
+        position:relative;
+        background: white;
+        width: 220px;
+    }
+    & .lto-dropdown-item {
+        padding-top: 0;
+        padding-bottom: 0;
+        display: inline-block;
+        height: 25px;
+        & span {
+            line-height: 25px;
+        }
+    }
+    & .lto-dropdown .lto-dropdown-item {
+        width: 100%;
+        &:hover {
+            background: rgb(40, 40, 40);
+            color: white;
+        }
+        & span {
+            position: absolute;
+        }
+    }
+}
+.lto-navigation-horizontal > .lto-link {
+    width: 300px;
+    display: inline-block;
+    text-align: center;
+    line-height: 57px;
+    text-transform: uppercase;
+    color:gray;
+    cursor: pointer;
+}
+.lto-navigation-horizontal > .lto-link.lto-active {
+    border-bottom: 3px solid rgb(0, 220, 200);
+    font-weight: bold;
+    color:black;
+}
+.lto-navigation-horizontal.lto-collapsed {
+    width: calc(100% - 70px);
+    -webkit-transition: width 0.25s;
+    transition: width 0.25s;
+}

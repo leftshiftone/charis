@@ -1,0 +1,37 @@
+.lto-input-email {
+    transition: border-color .15s ease-in-out 0s, box-shadow .15s ease-in-out 0s, -webkit-box-shadow .15s ease-in-out 0s;
+    padding: 6px 12px;
+    width: 100%;
+    outline: none;
+    font-size: 14px;
+    border-radius: 1px;
+    color: inherit;
+    line-height: 1.5;
+    border: none;
+    height: 40px;
+    box-sizing: border-box;
+}
+
+.lto-input-email::-webkit-input-placeholder {
+    color: lightgrey;
+}
+
+.lto-input-email::-moz-placeholder {
+    color: lightgrey;
+}
+
+.lto-input-email::-ms-input-placeholder {
+    color: lightgrey;
+}
+
+.lto-input-email:-moz-placeholder {
+    color: lightgrey;
+}
+
+.lto-input-email:-ms-input-placeholder {
+    color: lightgrey;
+}
+
+.lto-input-email::placeholder {
+    color: lightgrey;
+}

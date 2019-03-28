@@ -1,0 +1,20 @@
+.lto-layout-admin {
+    height: 100%;
+    background: rgb(30, 30, 40);
+
+    & > section {
+        height: calc(100% - 60px);
+        width: 85%;
+        -webkit-transition: width 0.25s;
+        transition: width 0.25s;
+        padding: 30px;
+        box-sizing: border-box;
+        float: left;
+        overflow-y: scroll;
+    }
+    > section.lto-collapsed {
+        width: calc(100% - 70px);
+        -webkit-transition: width 0.25s;
+        transition: width 0.25s;
+    }
+}
