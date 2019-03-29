@@ -1,6 +1,6 @@
 import * as React from 'react';
 // @ts-ignore
-import * as Convey from "gaia-js-sdk-convey";
+import * as Convey from 'gaia-js-sdk-convey/dist/lib/vis';
 
 export default class Sunburst extends React.Component<SunburstProps, {}> {
 

@@ -1,5 +1,5 @@
 import * as React from 'react';
-import * as Convey from "gaia-js-sdk-convey";
+import * as Convey from 'gaia-js-sdk-convey/dist/lib/vis';
 
 export default class Graph extends React.Component<GraphProps, {}> {
 

@@ -1,17 +1,17 @@
 import * as React from 'react';
 // @ts-ignore
-import * as Convey from "gaia-js-sdk-convey";
+import * as Convey from 'gaia-js-sdk-convey/dist/lib/vis';
 
 export default class Scatterplot extends React.Component<ScatterplotProps, {}> {
 
-    private div:HTMLDivElement | null = null;
+    private div: HTMLDivElement | null = null;
 
-    constructor(props:ScatterplotProps) {
+    constructor(props: ScatterplotProps) {
         super(props);
     }
 
     public render() {
-        return (<div style={{height:"100%"}} ref={div => this.div = div} />);
+        return (<div style={{height: "100%"}} ref={div => this.div = div}/>);
     }
 
     public componentDidMount() {
@@ -35,7 +35,8 @@ export default class Scatterplot extends React.Component<ScatterplotProps, {}> {
     }
 
 }
+
 interface ScatterplotProps {
-    data:Promise<any>;
-    color?:[string];
+    data: Promise<any>;
+    color?: [string];
 }
