@@ -3,6 +3,9 @@
     "version": "1.0.0",
     "description": "Leftshift One React component library",
     "main": "dist/lib/all.js",
+    "dependencies": {
+        "gaia-js-sdk-convey": "^0.13.0"
+    },
     "devDependencies": {
         "@babel/cli": "^7.2.3",
         "@babel/core": "^7.0.0-beta.42",
@@ -44,8 +47,10 @@
         "postcss-loader": "^3.0.0",
         "react": "16.5.2",
         "react-dom": "16.5.2",
+        "release-it": "^8.2.0",
         "sass-loader": "^7.1.0",
         "shx": "^0.3.2",
+        "sonarqube-scanner": "2.1.2",
         "style-loader": "^0.22.1",
         "stylelint": "^9.5.0",
         "stylelint-config-recommended": "^2.1.0",
@@ -69,7 +74,7 @@
         "build:types": "tsc --emitDeclarationOnly",
         "build:js": "babel src --out-dir dist/lib --extensions \".ts,.tsx\" --source-maps inline",
         "lint": "stylelint src/**/*.scss && tslint src/**/*.ts && eslint *.js",
-        "start": "./node_modules/.bin/parcel src/docs/index.html",
+        "start": "./node_modules/.bin/parcel src/docs/index.html"
     },
     "repository": {
         "type": "git",

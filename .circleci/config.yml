@@ -1,0 +1,245 @@
+version: 2.1
+jobs:
+  webhook-completed:
+    docker:
+      - image: circleci/openjdk:8-jdk-browsers
+    steps:
+      - run:
+          name: Webhook completed
+          command: |
+              curl $BUILD_STATUS_URL\?flow\=circleci-completed -d '{"repository":"'"$CIRCLE_PROJECT_REPONAME"'","branch":"'"$CIRCLE_BRANCH"'","build_number":"'"$CIRCLE_PREVIOUS_BUILD_NUM"'","build_url":"'"$CIRCLE_BUILD_URL"'"}' -H "Content-Type: application/json" -X POST -i || true
+  build:
+    docker:
+      - image: circleci/node:lts-browsers
+    steps:
+      - run:
+          name: Webhook created
+          command: |
+              curl $BUILD_STATUS_URL\?flow\=circleci-created -d '{"repository":"'"$CIRCLE_PROJECT_REPONAME"'","branch":"'"$CIRCLE_BRANCH"'","build_number":"'"$CIRCLE_BUILD_NUM"'","build_url":"'"$CIRCLE_BUILD_URL"'"}' -H "Content-Type: application/json" -X POST -i || true
+      - checkout
+      - restore_cache:
+          key: cache-node-{{ checksum "package.json" }}
+      - run: yarn install
+      - save_cache:
+          paths:
+            - ./node_modules
+          key: cache-node-{{ checksum "package.json" }}
+      - run: yarn build
+      - run:
+          name: Webhook completed
+          when: on_fail
+          command: |
+              curl $BUILD_STATUS_URL\?flow\=circleci-completed\&status\=FAILED -d '{"repository":"'"$CIRCLE_PROJECT_REPONAME"'","branch":"'"$CIRCLE_BRANCH"'","build_number":"'"$CIRCLE_BUILD_NUM"'","build_url":"'"$CIRCLE_BUILD_URL"'"}' -H "Content-Type: application/json" -X POST -i || true
+  code-analytics:
+    docker:
+      - image: circleci/node:lts-browsers
+    environment:
+      TZ: "/usr/share/zoneinfo/Europe/Vienna"
+    steps:
+      - run:
+          name: Webhook created
+          command: |
+            curl $BUILD_STATUS_URL\?flow\=circleci-created -d '{"repository":"'"$CIRCLE_PROJECT_REPONAME"'","branch":"'"$CIRCLE_BRANCH"'","build_number":"'"$CIRCLE_BUILD_NUM"'","build_url":"'"$CIRCLE_BUILD_URL"'"}' -H "Content-Type: application/json" -X POST -i || true
+      - checkout
+      - restore_cache:
+          key: cache-node-{{ checksum "package.json" }}
+      - run: yarn sonarqube
+      - save_cache:
+          paths:
+            - ./node_modules
+          key: cache-node-{{ checksum "package.json" }}
+      - run:
+          name: Webhook completed
+          when: on_fail
+          command: |
+            curl $BUILD_STATUS_URL\?flow\=circleci-completed\&status\=FAILED -d '{"repository":"'"$CIRCLE_PROJECT_REPONAME"'","branch":"'"$CIRCLE_BRANCH"'","build_number":"'"$CIRCLE_BUILD_NUM"'","build_url":"'"$CIRCLE_BUILD_URL"'"}' -H "Content-Type: application/json" -X POST -i || true
+  dependency-updates:
+    docker:
+      - image: circleci/node:lts-browsers
+    environment:
+      TZ: "/usr/share/zoneinfo/Europe/Vienna"
+    steps:
+      - run:
+          name: Webhook created
+          command: |
+            curl $BUILD_STATUS_URL\?flow\=circleci-created -d '{"repository":"'"$CIRCLE_PROJECT_REPONAME"'","branch":"'"$CIRCLE_BRANCH"'","build_number":"'"$CIRCLE_BUILD_NUM"'","build_url":"'"$CIRCLE_BUILD_URL"'"}' -H "Content-Type: application/json" -X POST -i || true
+      - checkout
+      - run: yarn add --dev ndc
+      - restore_cache:
+          key: cache-node-{{ checksum "package.json" }}
+      - run: yarn install
+      - save_cache:
+          paths:
+            - ./node_modules
+          key: cache-node-{{ checksum "package.json" }}
+      - run: yarn ndc --stats --export $BUILD_STATUS_URL\?flow\=depsNdc\&repositoryName\=$CIRCLE_PROJECT_REPONAME\&repositoryBranch\=$CIRCLE_BRANCH\&buildNumber\=$CIRCLE_BUILD_NUM
+      - run:
+          name: Webhook completed
+          when: on_fail
+          command: |
+            curl $BUILD_STATUS_URL\?flow\=circleci-completed\&status\=FAILED -d '{"repository":"'"$CIRCLE_PROJECT_REPONAME"'","branch":"'"$CIRCLE_BRANCH"'","build_number":"'"$CIRCLE_BUILD_NUM"'","build_url":"'"$CIRCLE_BUILD_URL"'"}' -H "Content-Type: application/json" -X POST -i || true
+  release-major:
+    docker:
+      - image: circleci/node:lts-browsers
+    steps:
+      - run:
+          name: Webhook created
+          command: |
+              curl $BUILD_STATUS_URL\?flow\=circleci-created -d '{"repository":"'"$CIRCLE_PROJECT_REPONAME"'","branch":"'"$CIRCLE_BRANCH"'","build_number":"'"$CIRCLE_BUILD_NUM"'","build_url":"'"$CIRCLE_BUILD_URL"'"}' -H "Content-Type: application/json" -X POST -i || true
+      - add_ssh_keys:
+          fingerprints:
+            - "7e:24:0c:38:b4:7b:06:c0:96:89:70:ec:a9:f6:ed:6f"
+      - checkout
+      - run: git config --local user.email "ci@leftshift.one" && git config --local user.name "Continuous Integration"
+      - run: yarn cleanup-release:major
+      - run: git checkout master && git pull --tags
+      - restore_cache:
+          key: cache-node-{{ checksum "package.json" }}
+      - run: yarn install
+      - save_cache:
+          paths:
+            - ./node_modules
+          key: cache-node-{{ checksum "package.json" }}
+      - run: yarn build
+      - run: npm set registry https://registry.npmjs.org/
+      - run: echo "//registry.npmjs.org/:_authToken=$NPM_TOKEN\n" > .npmrc
+      - run: npm run release:major
+      - run:
+          name: Webhook completed
+          when: on_fail
+          command: |
+              curl $BUILD_STATUS_URL\?flow\=circleci-completed\&status\=FAILED -d '{"repository":"'"$CIRCLE_PROJECT_REPONAME"'","branch":"'"$CIRCLE_BRANCH"'","build_number":"'"$CIRCLE_BUILD_NUM"'","build_url":"'"$CIRCLE_BUILD_URL"'"}' -H "Content-Type: application/json" -X POST -i || true
+  release-minor:
+    docker:
+      - image: circleci/node:lts-browsers
+    steps:
+      - run:
+          name: Webhook created
+          command: |
+              curl $BUILD_STATUS_URL\?flow\=circleci-created -d '{"repository":"'"$CIRCLE_PROJECT_REPONAME"'","branch":"'"$CIRCLE_BRANCH"'","build_number":"'"$CIRCLE_BUILD_NUM"'","build_url":"'"$CIRCLE_BUILD_URL"'"}' -H "Content-Type: application/json" -X POST -i || true
+      - add_ssh_keys:
+          fingerprints:
+            - "7e:24:0c:38:b4:7b:06:c0:96:89:70:ec:a9:f6:ed:6f"
+      - checkout
+      - run: git config --local user.email "ci@leftshift.one" && git config --local user.name "Continuous Integration"
+      - run: yarn cleanup-release:minor
+      - run: git checkout master && git pull --tags
+      - restore_cache:
+          key: cache-node-{{ checksum "package.json" }}
+      - run: yarn install
+      - save_cache:
+          paths:
+            - ./node_modules
+          key: cache-node-{{ checksum "package.json" }}
+      - run: yarn build
+      - run: npm set registry https://registry.npmjs.org/
+      - run: echo "//registry.npmjs.org/:_authToken=$NPM_TOKEN" > .npmrc
+      - run: npm run release:minor
+      - run:
+          name: Webhook completed
+          when: on_fail
+          command: |
+              curl $BUILD_STATUS_URL\?flow\=circleci-completed\&status\=FAILED -d '{"repository":"'"$CIRCLE_PROJECT_REPONAME"'","branch":"'"$CIRCLE_BRANCH"'","build_number":"'"$CIRCLE_BUILD_NUM"'","build_url":"'"$CIRCLE_BUILD_URL"'"}' -H "Content-Type: application/json" -X POST -i || true
+  release-patch:
+    docker:
+      - image: circleci/node:lts-browsers
+    steps:
+      - run:
+          name: Webhook created
+          command: |
+              curl $BUILD_STATUS_URL\?flow\=circleci-created -d '{"repository":"'"$CIRCLE_PROJECT_REPONAME"'","branch":"'"$CIRCLE_BRANCH"'","build_number":"'"$CIRCLE_BUILD_NUM"'","build_url":"'"$CIRCLE_BUILD_URL"'"}' -H "Content-Type: application/json" -X POST -i || true
+      - add_ssh_keys:
+          fingerprints:
+            - "7e:24:0c:38:b4:7b:06:c0:96:89:70:ec:a9:f6:ed:6f"
+      - checkout
+      - run: yarn cleanup-release:patch
+      - run: git config --local user.email "ci@leftshift.one" && git config --local user.name "Continuous Integration"
+      - restore_cache:
+          key: cache-node-{{ checksum "package.json" }}
+      - run: yarn install
+      - save_cache:
+          paths:
+            - ./node_modules
+          key: cache-node-{{ checksum "package.json" }}
+      - run: yarn build
+      - run: npm set registry https://registry.npmjs.org/
+      - run: echo "//registry.npmjs.org/:_authToken=$NPM_TOKEN" > .npmrc
+      - run: npm run release:patch
+      - run:
+          name: Webhook completed
+          when: on_fail
+          command: |
+              curl $BUILD_STATUS_URL\?flow\=circleci-completed\&status\=FAILED -d '{"repository":"'"$CIRCLE_PROJECT_REPONAME"'","branch":"'"$CIRCLE_BRANCH"'","build_number":"'"$CIRCLE_BUILD_NUM"'","build_url":"'"$CIRCLE_BUILD_URL"'"}' -H "Content-Type: application/json" -X POST -i || true
+
+workflows:
+  version: 2
+  build:
+    jobs:
+      - build
+      - webhook-completed:
+          requires:
+            - build
+  release-major:
+    jobs:
+      - release-major:
+          context: npm
+          filters:
+            branches:
+              ignore: /.*/
+            tags:
+              only: /^release-major$/
+      - webhook-completed:
+          requires:
+            - release-major
+  release-minor:
+    jobs:
+      - release-minor:
+          context: npm
+          filters:
+            branches:
+              ignore: /.*/
+            tags:
+              only: /^release-minor$/
+      - webhook-completed:
+          requires:
+            - release-minor
+  release-patch:
+    jobs:
+      - release-patch:
+          context: npm
+          filters:
+            branches:
+              ignore: /.*/
+            tags:
+              only: /^release-patch$/
+      - webhook-completed:
+          requires:
+            - release-patch
+  code-analytics:
+    triggers:
+      - schedule:
+          cron: "0 0 * * *"
+          filters:
+            branches:
+              only:
+                - master
+    jobs:
+      - code-analytics:
+          context: leftshiftone-sonar
+      - webhook-completed:
+          requires:
+            - code-analytics
+  dependency-updates:
+    triggers:
+      - schedule:
+          cron: "0 1 * * *"
+          filters:
+            branches:
+              only:
+                - master
+    jobs:
+      - dependency-updates:
+          context: leftshiftone-sonar
+      - webhook-completed:
+          requires:
+            - dependency-updates
