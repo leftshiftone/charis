@@ -43,9 +43,7 @@
         "preRelease": false,
         "draft": false,
         "tokenRef": "GITHUB_TOKEN",
-        "assets": [
-            "dist/**"
-        ],
+        "assets": [],
         "host": null,
         "timeout": 0,
         "proxy": false
