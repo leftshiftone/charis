@@ -88,7 +88,7 @@ jobs:
               curl $BUILD_STATUS_URL\?flow\=circleci-created -d '{"repository":"'"$CIRCLE_PROJECT_REPONAME"'","branch":"'"$CIRCLE_BRANCH"'","build_number":"'"$CIRCLE_BUILD_NUM"'","build_url":"'"$CIRCLE_BUILD_URL"'"}' -H "Content-Type: application/json" -X POST -i || true
       - add_ssh_keys:
           fingerprints:
-            - "7e:24:0c:38:b4:7b:06:c0:96:89:70:ec:a9:f6:ed:6f"
+            - "cd:1d:75:5d:07:32:e4:fb:27:87:7c:16:c3:4b:2d:12"
       - checkout
       - run: git config --local user.email "ci@leftshift.one" && git config --local user.name "Continuous Integration"
       - run: yarn cleanup-release:major
@@ -119,7 +119,7 @@ jobs:
               curl $BUILD_STATUS_URL\?flow\=circleci-created -d '{"repository":"'"$CIRCLE_PROJECT_REPONAME"'","branch":"'"$CIRCLE_BRANCH"'","build_number":"'"$CIRCLE_BUILD_NUM"'","build_url":"'"$CIRCLE_BUILD_URL"'"}' -H "Content-Type: application/json" -X POST -i || true
       - add_ssh_keys:
           fingerprints:
-            - "7e:24:0c:38:b4:7b:06:c0:96:89:70:ec:a9:f6:ed:6f"
+            - "cd:1d:75:5d:07:32:e4:fb:27:87:7c:16:c3:4b:2d:12"
       - checkout
       - run: git config --local user.email "ci@leftshift.one" && git config --local user.name "Continuous Integration"
       - run: yarn cleanup-release:minor
@@ -150,7 +150,7 @@ jobs:
               curl $BUILD_STATUS_URL\?flow\=circleci-created -d '{"repository":"'"$CIRCLE_PROJECT_REPONAME"'","branch":"'"$CIRCLE_BRANCH"'","build_number":"'"$CIRCLE_BUILD_NUM"'","build_url":"'"$CIRCLE_BUILD_URL"'"}' -H "Content-Type: application/json" -X POST -i || true
       - add_ssh_keys:
           fingerprints:
-            - "7e:24:0c:38:b4:7b:06:c0:96:89:70:ec:a9:f6:ed:6f"
+            - "cd:1d:75:5d:07:32:e4:fb:27:87:7c:16:c3:4b:2d:12"
       - checkout
       - run: yarn cleanup-release:patch
       - run: git config --local user.email "ci@leftshift.one" && git config --local user.name "Continuous Integration"
