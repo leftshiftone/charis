@@ -68,7 +68,7 @@
         "webpack-node-externals": "^1.6.0"
     },
     "scripts": {
-        "copy-scss": "copyfiles -u 1 ./src/**/*.scss ./dist/lib && copyfiles -u 1 ./src/**/*.scss ./dist/lib-esm",
+        "copy-scss": "copyfiles -u 1 ./src/**/*.scss ./dist/lib && copyfiles -u 1 ./src/**/*.scss ./dist/lib-esm && copyfiles -u 1 ./src/**/**/**/*.scss ./dist/lib && copyfiles -u 1 ./src/**/**/**/*.scss ./dist/lib-esm",
         "clean": "shx rm -rf dist lib lib-esm",
         "build": "npm run build:types && npm run build:js && npm run copy-scss",
         "build:types": "tsc --emitDeclarationOnly",
