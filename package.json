@@ -76,7 +76,7 @@
         "build:js": "babel src --out-dir dist/lib --extensions \".ts,.tsx\" --source-maps inline",
         "lint": "stylelint src/**/*.scss && tslint src/**/*.ts && eslint *.js",
         "start": "./node_modules/.bin/parcel src/docs/index.html",
-        "sonarqube": "jest --env=jsdom --coverage && sonar-scanner -Dsonar.host.url=$SONAR_HOST_URL -Dsonar.login=$SONAR_LOGIN",
+        "sonarqube": "sonar-scanner -Dsonar.host.url=$SONAR_HOST_URL -Dsonar.login=$SONAR_LOGIN",
         "trigger-release:major": "git pull --tags && git tag release-major && git push --tags && git tag -d release-major",
         "cleanup-release:major": "git tag -d release-major && git push -d origin release-major",
         "trigger-release:minor": "git pull --tags && git tag release-minor && git push --tags && git tag -d release-minor",
