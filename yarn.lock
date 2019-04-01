@@ -5631,10 +5631,10 @@ functional-red-black-tree@^1.0.1:
   resolved "https://registry.yarnpkg.com/functional-red-black-tree/-/functional-red-black-tree-1.0.1.tgz#1b0ab3bd553b2a0d6399d29c0e3ea0b252078327"
   integrity sha1-GwqzvVU7Kg1jmdKcDj6gslIHgyc=
 
-gaia-js-sdk-convey@^0.14.0:
-  version "0.14.0"
-  resolved "https://registry.yarnpkg.com/gaia-js-sdk-convey/-/gaia-js-sdk-convey-0.14.0.tgz#6ace1e7493886f153b6c8dcdc133cb41da6e3c4f"
-  integrity sha512-ZDttWoDd8p/MzJxfdAgybZywoHgjMn/I1sQunOSyOs9XAbCai4HuBSx/1IqdfGde+mETevNLb0EqYpq5tglhDQ==
+gaia-js-sdk-convey@^0.16.0:
+  version "0.16.0"
+  resolved "https://registry.yarnpkg.com/gaia-js-sdk-convey/-/gaia-js-sdk-convey-0.16.0.tgz#eb774569437c9ba84fe5471b77499ecc74144ba7"
+  integrity sha512-08AUKjm0sQ+j5FfDKe150SO7rDVGmAJBt/DO6tkzgEDaTD0mKwUPvF30UPArfKW1yg0sWKSmrws5NuGUrMRgQQ==
   dependencies:
     d3 "^5.8.0"
     d3-3d "^0.0.9"
