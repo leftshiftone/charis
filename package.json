@@ -4,7 +4,7 @@
     "description": "Leftshift One React component library",
     "main": "dist/lib/all.js",
     "dependencies": {
-        "gaia-js-sdk-convey": "^0.15.0"
+        "gaia-js-sdk-convey": "^0.16.0"
     },
     "devDependencies": {
         "@babel/cli": "^7.2.3",
@@ -84,7 +84,7 @@
         "trigger-release:patch": "git pull --tags && git tag release-patch && git push --tags && git tag -d release-patch",
         "cleanup-release:patch": "git tag -d release-patch && git push -d origin release-patch",
         "release:major": "release-it major",
-        "release:minor": "release-it minor",
+        "release:minor": "release-it minor --no-requireCleanWorkingDir",
         "release:patch": "release-it patch --no-git.requireUpstream"
     },
     "repository": {
