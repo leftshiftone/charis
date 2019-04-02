@@ -1,6 +1,6 @@
 {
     "name": "charis",
-    "version": "0.9.0",
+    "version": "0.10.0",
     "description": "Leftshift One React component library",
     "main": "dist/lib/all.js",
     "dependencies": {
