@@ -16,6 +16,7 @@
 
 import * as React from 'react';
 import ToastAssembly from "../../api/assembly/ToastAssembly";
+import Emitter from "../../api/emitter/Emitter";
 
 export default class Toast extends React.Component<ToastProps, {}> {
 
@@ -29,6 +30,10 @@ export default class Toast extends React.Component<ToastProps, {}> {
                 <p>{this.props.assembly.getText()}</p>
             </aside>
         );
+    }
+
+    public static show(text:string, type:"info" | "warn" | "error") {
+        Emitter.emit("charis:toastContainer:show", new ToastAssembly(text, type));
     }
 
 }

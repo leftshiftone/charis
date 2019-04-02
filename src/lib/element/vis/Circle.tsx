@@ -3,7 +3,7 @@ import * as React from "react";
 export default class Circle extends React.Component<CircleProps, {}> {
 
     public render(): React.ReactNode {
-        return <svg className="lto-circle" viewBox="0 0 33.83098862 33.83098862" width="200" height="200">
+        return <svg className={"lto-circle " + (this.props.className || "")} viewBox="0 0 33.83098862 33.83098862" width="200" height="200">
             <circle stroke="#efefef" strokeWidth="2" fill="none" cx="16.91549431" cy="16.91549431" r="15.91549431"/>
             <circle stroke="#00acc1" strokeWidth="2" strokeDasharray={this.props.score * 100 + ",100"}
                     strokeLinecap="round" fill="none" cx="16.91549431" cy="16.91549431" r="15.91549431"/>
@@ -20,4 +20,5 @@ export default class Circle extends React.Component<CircleProps, {}> {
 interface CircleProps {
     score: number;
     heading?: string;
+    className?:string;
 }

@@ -11,7 +11,7 @@ export default class Medium extends React.Component<MediumProps, {}> {
 }
 
 interface MediumProps {
-    children: (string | HTMLBRElement) | (string | HTMLBRElement)[];
+    children: (string | React.ReactElement<HTMLBRElement>) | (string | React.ReactElement<HTMLBRElement>)[];
     align?: "left" | "center" | "right";
     className?: string;
 }
