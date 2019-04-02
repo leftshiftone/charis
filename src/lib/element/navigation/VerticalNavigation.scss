@@ -50,6 +50,9 @@
         background: rgb(40, 40, 40);
         width: 70px;
     }
+    & > ul:not(.collapsed) {
+        display: none;
+    }
 }
 .lto-navigation-vertical.lto-collapsed svg ~ span {
     display:none;
