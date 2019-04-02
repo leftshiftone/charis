@@ -52,7 +52,6 @@ import SvgEdit from "./lib/element/svg/SvgEdit";
 import SvgEntity from "./lib/element/svg/SvgEntity";
 import SvgExclamation from "./lib/element/svg/SvgExclamation";
 import SvgFlow from "./lib/element/svg/SvgFlow";
-import SvgInsight from "./lib/element/svg/SvgInsight";
 import SvgLabel from "./lib/element/svg/SvgLabel";
 import SvgOption from "./lib/element/svg/SvgOption";
 import SvgPlay from "./lib/element/svg/SvgPlay";
@@ -205,7 +204,6 @@ export {
     SvgEntity,
     SvgExclamation,
     SvgFlow,
-    SvgInsight,
     SvgLabel,
     SvgOption,
     SvgPlay,
