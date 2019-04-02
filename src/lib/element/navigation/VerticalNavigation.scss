@@ -41,13 +41,14 @@
     }
 }
 .lto-navigation-vertical.lto-collapsed .lto-dropdown {
-    padding: 5px 0 5px 0;
     background: rgb(40, 40, 40);
     width: 70px;
     -webkit-transition: width 0.25s;
     transition: width 0.25s;
-    & > div > svg {
-        padding-left: 15px;
+    & > ul {
+        margin-left: -15px;
+        background: rgb(40, 40, 40);
+        width: 70px;
     }
 }
 .lto-navigation-vertical.lto-collapsed svg ~ span {
