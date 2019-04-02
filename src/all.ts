@@ -52,7 +52,6 @@ import SvgEdit from "./lib/element/svg/SvgEdit";
 import SvgEntity from "./lib/element/svg/SvgEntity";
 import SvgExclamation from "./lib/element/svg/SvgExclamation";
 import SvgFlow from "./lib/element/svg/SvgFlow";
-import SvgInsight from "./lib/element/svg/SvgInsight";
 import SvgLabel from "./lib/element/svg/SvgLabel";
 import SvgOption from "./lib/element/svg/SvgOption";
 import SvgPlay from "./lib/element/svg/SvgPlay";
@@ -84,6 +83,11 @@ import EditableSpan from "./lib/element/span/EditableSpan";
 import SvgClose from "./lib/element/svg/SvgClose";
 import Toast from "./lib/element/division/Toast";
 import Environment from "./lib/element/division/Environment";
+import SvgBehaviour from "./lib/element/svg/SvgBehaviour";
+import SvgBricks from "./lib/element/svg/SvgBricks";
+import SvgConversation from "./lib/element/svg/SvgConversation";
+import SvgInformation from "./lib/element/svg/SvgInformation";
+import SvgInsights from "./lib/element/svg/SvgInsights";
 
 if (typeof document !== "undefined") {
     require("./lib/styles.scss");
@@ -206,7 +210,6 @@ export {
     SvgEntity,
     SvgExclamation,
     SvgFlow,
-    SvgInsight,
     SvgLabel,
     SvgOption,
     SvgPlay,
@@ -223,5 +226,10 @@ export {
     EditableSpan,
     SeventyThirtyLayout,
     ContextMenu,
-    Environment
+    Environment,
+    SvgBehaviour,
+    SvgBricks,
+    SvgConversation,
+    SvgInformation,
+    SvgInsights
 };

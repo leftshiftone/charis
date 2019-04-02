@@ -15,6 +15,7 @@
         & a {
             line-height: 40px;
             position: absolute;
+            font-weight: bold;
         }
     }
     & .lto-dropdown {
@@ -23,6 +24,7 @@
     & .lto-dropdown > div > span {
         position: absolute;
         line-height: 40px;
+        font-weight: bold;
     }
 }
 .lto-navigation-vertical > div {
