@@ -17,6 +17,8 @@
 import * as React from 'react';
 import {CSSProperties, MouseEvent} from 'react';
 import Assembly from "../../api/assembly/ModalAssembly";
+import ModalAssembly from "../../api/assembly/ModalAssembly";
+import Emitter from "../../api/emitter/Emitter";
 
 export default class Modal extends React.Component<ModalProps, {}> {
 
@@ -37,7 +39,11 @@ export default class Modal extends React.Component<ModalProps, {}> {
                  className={`lto-modal ${this.props.visible ? "visible" : ""} lto-modal-${this.props.assembly.getSize()}`}>
                 <div className={"lto-modal-block"} style={this.getStyleB()}>
                     <h2>{this.props.assembly.getText()}</h2>
-                    <button onClick={this.props.onClose}>&times;</button>
+                    {
+                        this.props.assembly.getShowCloseButton()
+                            ? <button onClick={this.props.onClose}>&times;</button>
+                            : <div />
+                    }
                     {this.props.children}
                 </div>
             </div>
@@ -70,6 +76,10 @@ export default class Modal extends React.Component<ModalProps, {}> {
             return {width: "33%"};
         }
         return {};
+    }
+
+    public static show(assembly: ModalAssembly) {
+        Emitter.emit("charis:toastContainer:show", assembly);
     }
 
 }
