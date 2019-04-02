@@ -47,7 +47,8 @@
     transition: width 0.25s;
     & > ul {
         margin-left: -15px;
-        background: rgb(40, 40, 40);
+        background: rgb(30, 30, 40);
+        border-right: 2px solid rgb(0, 255, 200);
         width: 70px;
     }
     & > ul:not(.collapsed) {
