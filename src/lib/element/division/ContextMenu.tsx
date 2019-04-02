@@ -17,9 +17,7 @@ export default class ContextMenu extends Component<ContextMenuProps, ContextMenu
         if (this.div) {
             this.div.addEventListener('contextmenu', (e: MouseEvent) => {
                 e.preventDefault();
-                console.log("screenX: " + e.screenX);
-                console.log("screenY: " + e.screenY);
-                $this.setState({show: true, posX: e.screenX, posY: e.screenY});
+                $this.setState({show: true, posX: e.clientX, posY: e.clientY});
 
                 document.addEventListener('click', () => $this.setState({show: false}), false);
             }, false);
