@@ -2,7 +2,8 @@ import * as React from 'react';
 import {Component} from 'react';
 import VerticalNavigation from "../../element/navigation/VerticalNavigation";
 import HorizontalNavigation from "../../element/navigation/HorizontalNavigation";
-import ModalContainer from "../../element/division/ModalContainer";
+import ModalContainer from "../../element/division/container/ModalContainer";
+import ToastContainer from "../../element/division/container/ToastContainer";
 
 class AdminLayout extends Component<MainProps, {}> {
 
@@ -14,6 +15,7 @@ class AdminLayout extends Component<MainProps, {}> {
         return (
             <main className={`lto-layout-admin ${this.props.className || ""}`}>
                 <ModalContainer/>
+                <ToastContainer/>
                 {this.props.verticalNavigation}
                 {this.props.horizontalNavigation}
                 <section className={(this.props.collapsed ? "lto-collapsed" : "")}>

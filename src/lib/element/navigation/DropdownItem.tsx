@@ -18,7 +18,7 @@ import * as React from 'react';
 import {MouseEvent} from 'react';
 import IIcon from "../../api/IIcon";
 import {toBoolean} from "../../api/Boolean";
-import Assembly from "../../api/Assembly";
+import Assembly from "../../api/assembly/ModalAssembly";
 import Emitter from "../../api/emitter/Emitter";
 
 export class DropdownItem extends React.Component<DropdownProps, DropdownState> {

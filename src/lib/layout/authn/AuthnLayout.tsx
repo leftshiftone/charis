@@ -1,9 +1,10 @@
 import * as React from 'react';
-import {Component} from 'react';
+import {Component, Fragment} from 'react';
 import Margin from "../../element/division/Margin";
 import Email from "../../element/input/Email";
 import Password from "../../element/input/Password";
 import Button from "../../element/button/Button";
+import {toBoolean} from "../../api/Boolean";
 
 export default class AuthnLayout extends Component<AuthnProps, AuthnState> {
 
@@ -27,28 +28,44 @@ export default class AuthnLayout extends Component<AuthnProps, AuthnState> {
     private renderChallenge() {
         return (
             <div>
-                <Margin key={"username"} bottom={20}>
-                    <Email value={this.state.username} onChange={e => this.update({username: e.target.value})}/>
-                </Margin>
-                <Margin key={"password"} bottom={20}>
-                    <Password value={this.state.password} onChange={e => this.update({password: e.target.value})}/>
-                </Margin>
-                <Button block={true} onClick={this.props.authn}>Anmelden</Button>
+                {this.renderUsername()}
+                {this.renderPassword()}
+                <Button block={true} onClick={() => this.props.authn(this.state)}>Anmelden</Button>
             </div>
         );
     }
 
     private update = (update: any) => this.setState(Object.assign(this.state, update));
 
+    private renderUsername() {
+        if (toBoolean(this.props.showUsername)) {
+            return <Margin key={"username"} bottom={20}>
+                <Email value={this.state.username} onChange={e => this.update({username: e.target.value})}/>
+            </Margin>;
+        }
+        return <Fragment />;
+    }
+
+    private renderPassword() {
+        if (toBoolean(this.props.showPassword)) {
+            return <Margin key={"password"} bottom={20}>
+                <Password value={this.state.password} onChange={e => this.update({password: e.target.value})}/>
+            </Margin>;
+        }
+        return <Fragment />;
+    }
+
 }
 
 interface AuthnProps {
     initUsername?: string;
     initPassword?: string;
+    showUsername?: boolean;
+    showPassword?: boolean;
 
     header?: React.ReactElement<any>;
     footer?: React.ReactElement<any>;
-    authn: () => void;
+    authn: (data:AuthnState) => void;
     className?: string;
 }
 

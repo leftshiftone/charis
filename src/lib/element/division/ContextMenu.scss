@@ -1,0 +1,31 @@
+div.lto-context-menu {
+    background: white;
+    position: fixed;
+    z-index: 1000;
+}
+
+div.lto-context-menu .lto-dropdown {
+    height: 30px;
+}
+
+div.lto-context-menu .lto-dropdown:hover {
+    background: rgb(40, 40, 40);
+    color: white;
+}
+
+div.lto-context-menu ul {
+    position: absolute;
+    top: 0;
+    left: 220px;
+    background: white;
+    width: 150px;
+}
+
+div.lto-context-menu .lto-dropdown-item {
+    height: 30px;
+}
+
+div.lto-context-menu .lto-dropdown-item:hover {
+    background: rgb(40, 40, 40);
+    color: white;
+}

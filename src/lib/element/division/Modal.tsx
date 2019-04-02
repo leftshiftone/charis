@@ -16,7 +16,7 @@
 
 import * as React from 'react';
 import {CSSProperties, MouseEvent} from 'react';
-import Assembly from "../../api/Assembly";
+import Assembly from "../../api/assembly/ModalAssembly";
 
 export default class Modal extends React.Component<ModalProps, {}> {
 

@@ -17,7 +17,7 @@
 import * as React from 'react';
 import {CSSProperties, MouseEvent} from 'react';
 import {toBoolean} from "../../api/Boolean";
-import Assembly from "../../api/Assembly";
+import Assembly from "../../api/assembly/ModalAssembly";
 
 export default class Toggle extends React.Component<ToggleProps, ToggleState> {
 

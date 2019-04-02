@@ -16,7 +16,7 @@
 
 import * as React from 'react';
 import Emitter from "../../../api/emitter/Emitter";
-import Assembly from "../../../api/Assembly";
+import ModalAssembly from "../../../api/assembly/ModalAssembly";
 
 export default class Widget extends React.Component<WidgetProps, {}> {
 
@@ -58,7 +58,7 @@ export default class Widget extends React.Component<WidgetProps, {}> {
 
     private onDoubleClick() {
         if (this.props.expandable) {
-            Emitter.emit("charis:modalContainer:show", new Assembly("", () => this.props.children, "full"));
+            Emitter.emit("charis:modalContainer:show", new ModalAssembly("", () => this.props.children, "full"));
         }
     }
 

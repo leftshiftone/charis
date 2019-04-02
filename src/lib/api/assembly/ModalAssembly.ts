@@ -1,6 +1,6 @@
-import {id} from "./Random";
+import {id} from "../Random";
 
-export default class Assembly {
+export default class ModalAssembly {
     private name:string;
     private text:string;
     private size:"full" | "half" | "third" | "auto";

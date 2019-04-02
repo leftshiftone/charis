@@ -15,9 +15,9 @@
  */
 
 import * as React from 'react';
-import Emitter from "../../api/emitter/Emitter";
-import Modal from "./Modal";
-import Assembly from "../../api/Assembly";
+import Emitter from "../../../api/emitter/Emitter";
+import Modal from "../Modal";
+import Assembly from "../../../api/assembly/ModalAssembly";
 
 export default class ModalContainer extends React.Component<{}, ModalContainerState> {
 

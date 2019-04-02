@@ -15,32 +15,25 @@
  */
 
 import * as React from 'react';
-import INavigation from "../../element/navigation/api/INavigation";
-import ModalContainer from "../../element/division/container/ModalContainer";
-import ToastContainer from "../../element/division/container/ToastContainer";
+import ToastAssembly from "../../api/assembly/ToastAssembly";
 
-export default class DashboardLayout extends React.Component<LayoutProps, {}> {
+export default class Toast extends React.Component<ToastProps, {}> {
 
-    constructor(props: LayoutProps) {
+    constructor(props: ToastProps) {
         super(props);
     }
 
     public render() {
         return (
-            <main className={"layout dashboard"}>
-                <ModalContainer/>
-                <ToastContainer/>
-                {this.props.navigation}
-                <section>
-                    {this.props.children}
-                </section>
-            </main>
+            <aside className={`lto-toast lto-toast-${this.props.assembly.getType()}`} onClick={() => this.props.onClick()}>
+                <p>{this.props.assembly.getText()}</p>
+            </aside>
         );
     }
 
 }
 
-interface LayoutProps {
-    children: any;
-    navigation: React.ReactElement<INavigation>;
+interface ToastProps {
+    assembly: ToastAssembly;
+    onClick: () => void;
 }

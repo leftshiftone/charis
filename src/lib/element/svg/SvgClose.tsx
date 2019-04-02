@@ -1,6 +1,6 @@
 import * as React from 'react';
 import {Component, MouseEvent} from 'react';
-import Assembly from "../../api/Assembly";
+import Assembly from "../../api/assembly/ModalAssembly";
 import Emitter from "../../api/emitter/Emitter";
 
 export default class SvgClose extends Component<SvgProps, {}> {

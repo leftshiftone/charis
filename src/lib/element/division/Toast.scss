@@ -1,0 +1,18 @@
+.lto-toast-container {
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 100px;
+}
+.lto-toast {
+    display: block;
+}
+.lto-toast-info {
+    background: cyan;
+}
+.lto-toast-warn {
+    background: orange;
+}
+.lto-toast-error {
+    background: orangered;
+}
