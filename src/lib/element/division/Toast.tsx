@@ -24,11 +24,16 @@ export default class Toast extends React.Component<ToastProps, {}> {
         super(props);
     }
 
+    public componentDidMount() {
+        const $this = this;
+        setTimeout(() => Emitter.emit("charis:toastContainer:hide", $this.props.assembly), 3000);
+    }
+
     public render() {
         return (
             <aside className={`lto-toast lto-toast-${this.props.assembly.getType()}`}
                    onClick={() => this.props.onClick()}>
-                <p>{this.props.assembly.getText()}</p>
+                <span>{this.props.assembly.getText()}</span>
             </aside>
         );
     }
