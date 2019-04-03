@@ -88,6 +88,7 @@ import SvgBricks from "./lib/element/svg/SvgBricks";
 import SvgConversation from "./lib/element/svg/SvgConversation";
 import SvgInformation from "./lib/element/svg/SvgInformation";
 import SvgInsights from "./lib/element/svg/SvgInsights";
+import SvgExpand from "./lib/element/svg/SvgExpand";
 
 if (typeof document !== "undefined") {
     require("./lib/styles.scss");
@@ -219,6 +220,7 @@ export {
     SvgStackbar,
     SvgUser,
     SvgClose,
+    SvgExpand,
     Tree,
     TreeRenderable,
     Circle,

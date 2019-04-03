@@ -17,8 +17,16 @@ export default class Accordion extends React.Component<AccordionProps, Accordion
     }
 
     public render() {
+        const classNames = ["lto-accordion"];
+        if (this.state.collapsed) {
+            classNames.push("lto-collapsed");
+        }
+        if (this.props.className) {
+            classNames.push(this.props.className);
+        }
+
         return (
-            <div ref={div => this.accordion = div} className={`lto-accordion ${this.state.collapsed ? "lto-collapsed" : ""}`}>
+            <div ref={div => this.accordion = div} className={classNames.join(" ")}>
                 <div className={"lto-accordion-control"}>
                     {this.props.control}
                 </div>
@@ -33,6 +41,7 @@ export default class Accordion extends React.Component<AccordionProps, Accordion
 
 interface AccordionProps {
     control: React.ReactElement<any>;
+    className?:string;
 }
 
 interface AccordionState {
