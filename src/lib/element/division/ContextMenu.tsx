@@ -25,8 +25,8 @@ export default class ContextMenu extends Component<ContextMenuProps, ContextMenu
     }
 
     public render() {
-        return <div ref={div => this.div = div}>
-            <div className={"lto-context-menu"} style={{left: this.state.posX + "px", pos: this.state.posY + "px"}}>
+        return <div style={{height:"100%"}} ref={div => this.div = div}>
+            <div className={"lto-context-menu"} style={{left: this.state.posX + "px", top: this.state.posY + "px"}}>
                 {this.state.show ? this.props.menu : <div/>}
             </div>
             {this.props.children}

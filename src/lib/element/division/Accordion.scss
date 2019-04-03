@@ -2,6 +2,13 @@
     background: rgb(25, 70, 75);
     color: white;
     margin-bottom: 2px;
+    &:hover {
+        filter:brightness(120%);
+    }
+    & .lto-highlight {
+        border-right: 5px solid cyan;
+        margin-right: -5px;
+    }
     & fieldset {
         display: inline-block;
         width: 25%;
@@ -32,7 +39,6 @@
     & svg {
         cursor: pointer;
     }
-
     &.lto-collapsed {
         & .lto-accordion-content {
             max-height: 0;
@@ -41,7 +47,6 @@
             z-index: -1000;
         }
     }
-
     & .lto-accordion-content {
         max-height: 1000px;
         transition: max-height 0.25s ease-out;

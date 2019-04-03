@@ -1,4 +1,5 @@
 import * as React from "react";
+import {toBoolean} from "../../api/Boolean";
 
 export default class Accordion extends React.Component<AccordionProps, AccordionState> {
 
@@ -6,7 +7,7 @@ export default class Accordion extends React.Component<AccordionProps, Accordion
 
     constructor(props: AccordionProps) {
         super(props);
-        this.state = {collapsed: true};
+        this.state = {collapsed: toBoolean(props.collapsed, true)};
     }
 
     public componentDidMount() {
@@ -42,6 +43,7 @@ export default class Accordion extends React.Component<AccordionProps, Accordion
 interface AccordionProps {
     control: React.ReactElement<any>;
     className?:string;
+    collapsed?: boolean;
 }
 
 interface AccordionState {
