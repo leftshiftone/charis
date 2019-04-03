@@ -2,16 +2,19 @@
     position: absolute;
     top: 0;
     right: 0;
-    width: 100px;
+    width: 250px;
 }
 .lto-toast {
     display: block;
+    padding: 15px;
+    margin-bottom: 5px;
+    border-radius: 5px;
 }
 .lto-toast-info {
     background: cyan;
 }
 .lto-toast-warn {
-    background: orange;
+    background: darkorange;
 }
 .lto-toast-error {
     background: orangered;

@@ -41,6 +41,7 @@ export default class ToastContainer extends React.Component<{}, ToastContainerSt
         const $this = this;
         Emitter.addListener("charis:toastContainer:show", (args: any[]) => {
             $this.setState({assemblies: [[id(), args[0]], ...this.state.assemblies]});
+            setTimeout(() => $this.removeAssembly(args[0]), 3000);
         });
         Emitter.addListener("charis:toastContainer:hide", () => {
             $this.setState({assemblies: []});
