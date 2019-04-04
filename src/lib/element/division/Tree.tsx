@@ -3,6 +3,7 @@ import {Component} from "react";
 import {isEqual, isNotEmpty} from "../../api/Objects";
 import {emptyIfNull} from "../../api/Lists";
 import SvgCaret from "../svg/SvgCaret";
+import IIcon from "../../api/IIcon";
 
 export default class Tree extends Component<TreeProps, TreeState> {
 
@@ -16,7 +17,7 @@ export default class Tree extends Component<TreeProps, TreeState> {
             <div className={"lto-tree"}>
                 {this.props.elements.map((e, i) => {
                     return (<TreeElement key={i} element={e} collapsed={true}
-                                         selected={isEqual(this.state.selected, e)}
+                                         selected={isEqual(this.state.selected, e, ["name", "type", "head"])}
                                          onSelect={(e) => this.setState({selected:e})}
                                          onChange={this.props.onChange} />);
                 })}
@@ -116,7 +117,7 @@ interface TreeElementState {
 }
 export interface TreeRenderable {
     name:string;
-    icon:React.ReactElement<any>;
+    icon:IIcon,
     type:string;
     head:TreeRenderable;
     list:TreeRenderable[];

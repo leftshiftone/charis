@@ -14,9 +14,12 @@ export const isNotEmpty = (obj: any) => {
 export const keys = (obj:any) => obj ? Object.keys(obj) : [];
 
 export const get = (obj:any, key:string) => obj ? obj[key] : obj;
-export const isEqual = (obj1:any, obj2:any):boolean => {
+export const isEqual = (obj1:any, obj2:any, replacer?:string[]):boolean => {
     if (!obj1 || !obj2) {
         return false;
+    }
+    if (replacer) {
+        return JSON.stringify(obj1, replacer) === JSON.stringify(obj2, replacer);
     }
     return JSON.stringify(obj1) === JSON.stringify(obj2);
 };
