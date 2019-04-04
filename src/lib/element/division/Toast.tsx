@@ -38,7 +38,7 @@ export default class Toast extends React.Component<ToastProps, {}> {
         if (this.props.assembly.getInfo()) {
             return <details>
                 <summary>details:</summary>
-                <p>{this.props.assembly.getInfo()}</p>
+                <span>{this.props.assembly.getInfo()}</span>
             </details>
         }
         return <React.Fragment />;

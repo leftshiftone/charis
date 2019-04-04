@@ -31,7 +31,8 @@ export default class ToastContainer extends React.Component<{}, ToastContainerSt
         return (<div className="lto-toast-container">
             {
                 this.state.assemblies.map((assembly) => {
-                    return <Toast key={assembly[0]} assembly={assembly[1]} onClick={() => this.removeAssembly(assembly)}/>;
+                    return <Toast key={assembly[0]} assembly={assembly[1]}
+                                  onClick={() => this.removeAssembly(assembly[1])}/>;
                 })
             }
         </div>);
@@ -47,8 +48,14 @@ export default class ToastContainer extends React.Component<{}, ToastContainerSt
         });
     }
 
-    private removeAssembly(assembly:[string, ToastAssembly]) {
-        this.setState({assemblies:this.state.assemblies.filter(e => e[0] !== assembly[0])});
+    private removeAssembly(assembly: ToastAssembly) {
+        this.setState({
+            assemblies: this.state.assemblies.filter(e => {
+                return e[1].getInfo() !== assembly.getInfo() ||
+                    e[1].getText() !== assembly.getText() ||
+                    e[1].getType() !== assembly.getType();
+            })
+        });
     }
 
 }
