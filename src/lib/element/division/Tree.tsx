@@ -64,7 +64,9 @@ class TreeElement extends Component<TreeElementProps, TreeElementState> {
 
         array.push(<li key={"a"} ref={div => this.div = div} className={classes.join(" ")} onClick={() => this.onClick()}>
             {isNotEmpty(this.props.element.list) ? <SvgCaret/> : <div style={{paddingLeft:"10px", display:"inline-block"}} />}
+            {this.props.element.icon}
             <span>{this.props.element.name}</span>
+            <small>{this.props.element.type}</small>
         </li>);
         if (isNotEmpty(this.props.element.list)) {
             array.push(this.renderTreeElements(this.props.element.list));
@@ -114,7 +116,8 @@ interface TreeElementState {
 }
 export interface TreeRenderable {
     name:string;
-    icon:string;
+    icon:React.ReactElement<any>;
+    type:string;
     head:TreeRenderable;
     list:TreeRenderable[];
 }

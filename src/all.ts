@@ -89,6 +89,10 @@ import SvgConversation from "./lib/element/svg/SvgConversation";
 import SvgInformation from "./lib/element/svg/SvgInformation";
 import SvgInsights from "./lib/element/svg/SvgInsights";
 import SvgExpand from "./lib/element/svg/SvgExpand";
+import SvgFunction from "./lib/element/svg/SvgFunction";
+import SvgXml from "./lib/element/svg/SvgXml";
+import SvgCsv from "./lib/element/svg/SvgCsv";
+import SvgJson from "./lib/element/svg/SvgJson";
 
 if (typeof document !== "undefined") {
     require("./lib/styles.scss");
@@ -233,5 +237,9 @@ export {
     SvgBricks,
     SvgConversation,
     SvgInformation,
-    SvgInsights
+    SvgInsights,
+    SvgFunction,
+    SvgCsv,
+    SvgJson,
+    SvgXml
 };
