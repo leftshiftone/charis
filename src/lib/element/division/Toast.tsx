@@ -24,16 +24,11 @@ export default class Toast extends React.Component<ToastProps, {}> {
         super(props);
     }
 
-    public componentDidMount() {
-        const $this = this;
-        setTimeout(() => Emitter.emit("charis:toastContainer:hide", $this.props.assembly), 3000);
-    }
-
     public render() {
         return (
-            <aside className={`lto-toast lto-toast-${this.props.assembly.getType()}`}
-                   onClick={() => this.props.onClick()}>
+            <aside className={`lto-toast lto-toast-${this.props.assembly.getType()}`}>
                 <span>{this.props.assembly.getText()}</span>
+                <button onClick={this.props.onClick}>&times;</button>
                 {this.renderDetails()}
             </aside>
         );
@@ -49,8 +44,11 @@ export default class Toast extends React.Component<ToastProps, {}> {
         return <React.Fragment />;
     }
 
-    public static show(assembly: ToastAssembly) {
+    public static show(assembly: ToastAssembly, timeout?:number) {
         Emitter.emit("charis:toastContainer:show", assembly);
+        if (timeout) {
+            setTimeout(() => Emitter.emit("charis:toastContainer:hide", assembly), timeout);
+        }
     }
 
 }
