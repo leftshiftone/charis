@@ -34,8 +34,19 @@ export default class Toast extends React.Component<ToastProps, {}> {
             <aside className={`lto-toast lto-toast-${this.props.assembly.getType()}`}
                    onClick={() => this.props.onClick()}>
                 <span>{this.props.assembly.getText()}</span>
+                {this.renderDetails()}
             </aside>
         );
+    }
+
+    private renderDetails() {
+        if (this.props.assembly.getInfo()) {
+            return <details>
+                <summary>details:</summary>
+                <p>{this.props.assembly.getInfo()}</p>
+            </details>
+        }
+        return <React.Fragment />;
     }
 
     public static show(assembly: ToastAssembly) {
