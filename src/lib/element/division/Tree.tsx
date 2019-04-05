@@ -63,8 +63,8 @@ class TreeElement extends Component<TreeElementProps, TreeElementState> {
         classes.push(this.state.collapsed ? "lto-collapsed" : "");
         classes.push(this.props.selected ? "lto-selected" : "");
 
-        array.push(<li key={"a"} ref={div => this.div = div} className={classes.join(" ")}>
-            {isNotEmpty(this.props.element.list) ? <SvgCaret onClick={() => this.onClick()}/> : <div style={{paddingLeft:"20px", display:"inline-block"}} />}
+        array.push(<li key={"a"} ref={div => this.div = div} className={classes.join(" ")} onClick={() => this.onClick()}>
+            {isNotEmpty(this.props.element.list) ? <SvgCaret onClick={() => this.collapse()}/> : <div style={{paddingLeft:"20px", display:"inline-block"}} />}
             {this.props.element.icon}
             <span>{this.props.element.name}</span>
         </li>);
@@ -74,8 +74,9 @@ class TreeElement extends Component<TreeElementProps, TreeElementState> {
         return array;
     }
 
+    private collapse = () => this.setState({collapsed:!this.state.collapsed});
+
     private onClick() {
-        this.setState({collapsed:!this.state.collapsed});
         this.props.onChange(this.props.element);
         this.props.onSelect(this.props.element);
     }
