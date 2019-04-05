@@ -93,6 +93,13 @@ import SvgFunction from "./lib/element/svg/SvgFunction";
 import SvgXml from "./lib/element/svg/SvgXml";
 import SvgCsv from "./lib/element/svg/SvgCsv";
 import SvgJson from "./lib/element/svg/SvgJson";
+import SvgCross from "./lib/element/svg/SvgCross";
+import SvgDependency from "./lib/element/svg/SvgDependency";
+import SvgDictionary from "./lib/element/svg/SvgDictionary";
+import SvgFingerprint from "./lib/element/svg/SvgFingerprint";
+import SvgPattern from "./lib/element/svg/SvgPattern";
+import SvgRotate from "./lib/element/svg/SvgRotate";
+import SvgRule from "./lib/element/svg/SvgRule";
 
 if (typeof document !== "undefined") {
     require("./lib/styles.scss");
@@ -241,5 +248,12 @@ export {
     SvgFunction,
     SvgCsv,
     SvgJson,
-    SvgXml
+    SvgXml,
+    SvgCross,
+    SvgDependency,
+    SvgDictionary,
+    SvgFingerprint,
+    SvgPattern,
+    SvgRotate,
+    SvgRule
 };

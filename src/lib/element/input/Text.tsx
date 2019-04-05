@@ -6,9 +6,9 @@ export default class Text extends React.Component<TextProps, TextState> {
 
     private input: HTMLInputElement | null = null;
 
-    constructor(props:TextProps) {
+    constructor(props: TextProps) {
         super(props);
-        this.state = {valid:true};
+        this.state = {valid: true};
     }
 
     public render() {
@@ -24,17 +24,18 @@ export default class Text extends React.Component<TextProps, TextState> {
                    }}
                    placeholder={this.props.placeholder}
                    pattern={this.props.pattern}
-                   required={toBoolean(this.props.required)}/>
+                   required={toBoolean(this.props.required)}
+                   autoFocus={this.props.autoFocus || false}/>
         );
     }
 
     private validate() {
         if (this.props.pattern && this.input && !this.input.checkValidity()) {
             if (this.state.valid) {
-                this.setState({valid:false});
+                this.setState({valid: false});
             }
         } else {
-            this.setState({valid:true});
+            this.setState({valid: true});
         }
     }
 
@@ -48,7 +49,9 @@ interface TextProps {
     className?: string;
     pattern?: string;
     required?: boolean;
+    autoFocus?: boolean;
 }
+
 interface TextState {
-    valid:boolean;
+    valid: boolean;
 }

@@ -41,7 +41,8 @@ export default class Button extends React.Component<ButtonProps, ButtonState> {
 
         return (
             <React.Fragment>
-                <button className={classNames.join(" ")} onClick={this.onClick.bind(this)} style={this.props.style}>
+                <button className={classNames.join(" ")} onClick={this.onClick.bind(this)} style={this.props.style}
+                autoFocus={this.props.autoFocus || false}>
                     {this.props.children}
                 </button>
             </React.Fragment>
@@ -69,6 +70,7 @@ interface ButtonProps {
     className?: string;
     children: string;
     block?: boolean;
+    autoFocus?:boolean;
 }
 
 interface ButtonState {

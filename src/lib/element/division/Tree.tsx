@@ -1,25 +1,25 @@
 import * as React from "react";
 import {Component} from "react";
-import {isEqual, isNotEmpty} from "../../api/Objects";
+import {isEqual, isNotEmpty, isNull} from "../../api/Objects";
 import {emptyIfNull} from "../../api/Lists";
+import {toBoolean} from "../../api/Boolean";
 import SvgCaret from "../svg/SvgCaret";
-import IIcon from "../../api/IIcon";
 
 export default class Tree extends Component<TreeProps, TreeState> {
 
-    constructor(props:TreeProps) {
+    constructor(props: TreeProps) {
         super(props);
-        this.state = {selected:props.selected || null};
+        this.state = {selected: props.selected || null};
     }
 
     public render() {
         return (
             <div className={"lto-tree"}>
-                {this.props.elements.map((e, i) => {
-                    return (<TreeElement key={i} element={e} collapsed={true}
-                                         selected={isEqual(this.state.selected, e, ["name", "type", "head"])}
-                                         onSelect={(e) => this.setState({selected:e})}
-                                         onChange={this.props.onChange} />);
+                {this.props.elements.map(e => {
+                    return (<TreeElement key={getTreePath(e).reverse().join("/")} element={e}
+                                         selected={(x) => isEqual(this.state.selected, x, ["name", "type", "head"])}
+                                         onSelect={(e) => this.setState({selected: e})}
+                                         onChange={this.props.onChange}/>);
                 })}
             </div>
         );
@@ -29,18 +29,18 @@ export default class Tree extends Component<TreeProps, TreeState> {
 
 class TreeElement extends Component<TreeElementProps, TreeElementState> {
 
-    private div:HTMLLIElement | null = null;
+    private div: HTMLLIElement | null = null;
 
-    constructor(props:TreeElementProps) {
+    constructor(props: TreeElementProps) {
         super(props);
-        this.state = {collapsed:props.collapsed || true};
+        this.state = {collapsed: toBoolean(props.collapsed, false)};
     }
 
     public componentDidMount() {
         const $this = this;
         if (this.div) {
             this.div.addEventListener("click", () => {
-                 $this.props.onSelect($this.props.element);
+                $this.props.onSelect($this.props.element);
             });
             this.div.addEventListener("contextmenu", () => {
                 if (!$this.props.selected) {
@@ -50,9 +50,9 @@ class TreeElement extends Component<TreeElementProps, TreeElementState> {
         }
     }
 
-    public componentWillUpdate() {
-        if (this.state.collapsed !== this.props.collapsed) {
-            this.setState({collapsed: this.props.collapsed});
+    public componentWillUpdate(prevProps: TreeElementProps) {
+        if (prevProps.collapsed !== this.props.collapsed) {
+            this.setState({collapsed: !this.props.collapsed});
         }
     }
 
@@ -61,10 +61,12 @@ class TreeElement extends Component<TreeElementProps, TreeElementState> {
         const classes = [];
 
         classes.push(this.state.collapsed ? "lto-collapsed" : "");
-        classes.push(this.props.selected ? "lto-selected" : "");
+        classes.push(this.props.selected(this.props.element) ? "lto-selected" : "");
 
-        array.push(<li key={"a"} ref={div => this.div = div} className={classes.join(" ")} onClick={() => this.onClick()}>
-            {isNotEmpty(this.props.element.list) ? <SvgCaret onClick={() => this.collapse()}/> : <div style={{paddingLeft:"20px", display:"inline-block"}} />}
+        array.push(<li key={"a"} ref={div => this.div = div} className={classes.join(" ")}
+                       onClick={() => this.onClick()}>
+            {isNotEmpty(this.props.element.list) ? <SvgCaret onClick={() => this.collapse()}/> :
+                <div style={{paddingLeft: "20px", display: "inline-block"}}/>}
             {this.props.element.icon}
             <span>{this.props.element.name}</span>
         </li>);
@@ -74,7 +76,7 @@ class TreeElement extends Component<TreeElementProps, TreeElementState> {
         return array;
     }
 
-    private collapse = () => this.setState({collapsed:!this.state.collapsed});
+    private collapse = () => this.setState({collapsed: !this.state.collapsed});
 
     private onClick() {
         this.props.onChange(this.props.element);
@@ -84,12 +86,12 @@ class TreeElement extends Component<TreeElementProps, TreeElementState> {
     private renderTreeElements(elements: TreeRenderable[]) {
         return (
             <ul className={this.state.collapsed ? "lto-collapsed" : ""}>
-                {emptyIfNull(elements).map((e: TreeRenderable, i) => {
-                    return (<TreeElement key={i} element={e}
+                {emptyIfNull(elements).map(e => {
+                    return (<TreeElement key={getTreePath(e).reverse().join("/")} element={e}
                                          onChange={this.props.onChange}
                                          onSelect={this.props.onSelect}
-                                         selected={false}
-                                         collapsed={this.state.collapsed || this.props.collapsed}/>);
+                                         selected={(x) => this.props.selected(x)}
+                                         collapsed={this.state.collapsed}/>);
                 })}
             </ul>
         );
@@ -99,25 +101,33 @@ class TreeElement extends Component<TreeElementProps, TreeElementState> {
 
 interface TreeProps {
     elements: TreeRenderable[];
-    onChange: (e:TreeRenderable) => void;
+    onChange: (e: TreeRenderable) => void;
     selected?: TreeRenderable;
 }
+
 interface TreeState {
     selected: TreeRenderable | null;
 }
+
 interface TreeElementProps {
     element: TreeRenderable;
-    onChange: (e:TreeRenderable) => void;
-    onSelect: (e:TreeRenderable) => void;
-    collapsed:boolean;
-    selected:boolean;
+    onChange: (e: TreeRenderable) => void;
+    onSelect: (e: TreeRenderable) => void;
+    collapsed?: boolean;
+    selected: (e: TreeRenderable) => boolean;
 }
+
 interface TreeElementState {
-    collapsed:boolean;
+    collapsed: boolean;
 }
+
 export interface TreeRenderable {
-    name:string;
-    icon:IIcon,
-    head:TreeRenderable;
-    list:TreeRenderable[];
+    name: string;
+    icon: any,
+    head: TreeRenderable;
+    list: TreeRenderable[];
+}
+
+export function getTreePath(renderable: TreeRenderable, path: string[] = []): string[] {
+    return isNull(renderable.head) ? [...path, renderable.name] : getTreePath(renderable.head, [...path, renderable.name]);
 }
