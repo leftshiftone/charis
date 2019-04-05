@@ -9,7 +9,7 @@ export default class SvgCaret extends Component<SvgProps, {}> {
 
     public render() {
         return (
-            <svg className={"lto-svg-caret"} viewBox="0 0 10000 10000">
+            <svg className={"lto-svg-caret " + this.props.className || ""} viewBox="0 0 10000 10000" onClick={this.props.onClick}>
                 <g>
                     <path fill="none" d="M 400,7200 L 5242,2400"/>
                     <path fill="none" d="M 9600,7200 L 4600,2400"/>
@@ -21,6 +21,6 @@ export default class SvgCaret extends Component<SvgProps, {}> {
 }
 
 interface SvgProps {
-    width?: string;
-    height?: string;
+    className?:string;
+    onClick?:() => void
 }

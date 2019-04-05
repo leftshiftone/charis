@@ -63,8 +63,8 @@ class TreeElement extends Component<TreeElementProps, TreeElementState> {
         classes.push(this.state.collapsed ? "lto-collapsed" : "");
         classes.push(this.props.selected ? "lto-selected" : "");
 
-        array.push(<li key={"a"} ref={div => this.div = div} className={classes.join(" ")} onClick={() => this.onClick()}>
-            {isNotEmpty(this.props.element.list) ? <SvgCaret/> : <div style={{paddingLeft:"10px", display:"inline-block"}} />}
+        array.push(<li key={"a"} ref={div => this.div = div} className={classes.join(" ")}>
+            {isNotEmpty(this.props.element.list) ? <SvgCaret onClick={() => this.onClick()}/> : <div style={{paddingLeft:"20px", display:"inline-block"}} />}
             {this.props.element.icon}
             <span>{this.props.element.name}</span>
         </li>);
@@ -82,7 +82,7 @@ class TreeElement extends Component<TreeElementProps, TreeElementState> {
 
     private renderTreeElements(elements: TreeRenderable[]) {
         return (
-            <ul key={"b"} className={this.state.collapsed ? "lto-collapsed" : ""}>
+            <ul className={this.state.collapsed ? "lto-collapsed" : ""}>
                 {emptyIfNull(elements).map((e: TreeRenderable, i) => {
                     return (<TreeElement key={i} element={e}
                                          onChange={this.props.onChange}
@@ -117,5 +117,6 @@ interface TreeElementState {
 export interface TreeRenderable {
     name:string;
     icon:IIcon,
+    head:TreeRenderable;
     list:TreeRenderable[];
 }
