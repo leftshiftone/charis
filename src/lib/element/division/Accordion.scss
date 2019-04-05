@@ -68,3 +68,7 @@
 .lto-accordion:not(.lto-collapsed) .lto-collapsible {
     opacity: 1;
 }
+.lto-accordion svg {
+    width: 30px;
+    height: 20px;
+}

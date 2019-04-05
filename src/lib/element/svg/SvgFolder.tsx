@@ -5,7 +5,7 @@ export default class SvgFolder extends Component<SvgProps, {}> {
 
     public render() {
         return (
-            <svg viewBox="0 0 10000 10000" className={this.props.className || ""}>
+            <svg viewBox="0 0 10000 10000" className={this.props.className || ""} onClick={this.props.onClick}>
                 <g>
                     <path className={"fillColour"} stroke="none" d="M 5000,8700 L 0,8700 0,2195 10000,2195 10000,8700 5000,8700 Z"/>
                     <path className={"strokeColour"} fill="none" strokeLinejoin="round" d="M 5000,8700 L 0,8700 0,2195 10000,2195 10000,8700 5000,8700 Z"/>
@@ -21,5 +21,6 @@ export default class SvgFolder extends Component<SvgProps, {}> {
 
 }
 interface SvgProps {
-    className?:string;
+    className?: string;
+    onClick?: () => void;
 }

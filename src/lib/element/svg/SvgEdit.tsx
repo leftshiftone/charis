@@ -1,5 +1,5 @@
 import * as React from 'react';
-import {Component, MouseEvent} from 'react';
+import {Component} from 'react';
 
 export default class SvgEdit extends Component<SvgProps, {}> {
 
@@ -8,13 +8,9 @@ export default class SvgEdit extends Component<SvgProps, {}> {
     }
 
     public render() {
-        const width = this.props.width || "40px";
-        const height = this.props.height || "40px";
-
         return (
-            <svg style={{width, height}} onClick={this.props.onClick} width="100mm" height="100mm"
-                 viewBox="0 0 10000 10000" preserveAspectRatio="xMidYMid" fillRule="evenodd" strokeWidth="28.222"
-                 strokeLinejoin="round">
+            <svg className={this.props.className || ""} onClick={this.props.onClick} width="100mm" height="100mm"
+                 viewBox="0 0 10000 10000" >
                 <g>
                     <path fill="rgb(102,255,255)" stroke="none" d="M 151,9877 L 906,7703 2355,9219 151,9877 Z"/>
                     <path fill="none" stroke="rgb(153,255,255)" id="Drawing_3_0" strokeLinejoin="round" d="M 151,9877 L 906,7703 2355,9219 151,9877 Z"/>
@@ -31,9 +27,7 @@ export default class SvgEdit extends Component<SvgProps, {}> {
     }
 
 }
-
 interface SvgProps {
-    width?: string;
-    height?: string;
-    onClick?: (e:MouseEvent) => void;
+    className?: string;
+    onClick?: () => void;
 }

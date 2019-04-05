@@ -1,6 +1,7 @@
 .lto-tree {
-    & .lto-selected {
-        background: rgb(60, 60, 60);
+    & .lto-selected span {
+        font-weight: bold;
+        color: cyan;
     }
     & span {
         color: white;

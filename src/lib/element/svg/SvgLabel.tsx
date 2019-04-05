@@ -1,18 +1,11 @@
 import * as React from 'react';
-import {Component, MouseEvent} from 'react';
+import {Component} from 'react';
 
 export default class SvgLabel extends Component<SvgProps, {}> {
 
-    constructor(props: SvgProps) {
-        super(props);
-    }
-
     public render() {
-        const width = this.props.width || "40px";
-        const height = this.props.height || "40px";
-
         return (
-            <svg style={{width, height}} width="100mm" height="100mm" onClick={this.props.onClick}
+            <svg className={this.props.className} width="100mm" height="100mm" onClick={this.props.onClick}
                  viewBox="0 0 10000 10000" preserveAspectRatio="xMidYMid" fillRule="evenodd" strokeWidth="28.222"
                  strokeLinejoin="round">
                 <g>
@@ -25,9 +18,7 @@ export default class SvgLabel extends Component<SvgProps, {}> {
     }
 
 }
-
 interface SvgProps {
-    width?: string;
-    height?: string;
-    onClick?: (e:MouseEvent<SVGElement>) => void;
+    className?: string;
+    onClick?: () => void;
 }

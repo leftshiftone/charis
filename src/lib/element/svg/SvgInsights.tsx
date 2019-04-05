@@ -1,32 +1,28 @@
 import * as React from 'react';
 import {Component} from 'react';
 
-export default class SvgInsights extends Component<{}, {}> {
-
-    constructor(props: {}) {
-        super(props);
-    }
+export default class SvgInsights extends Component<SvgProps, {}> {
 
     public render() {
         return (
-            <svg style={{width: "40px", height: "40px"}} version="1.2" baseProfile="tiny" width="100mm" height="100mm"
-                 viewBox="0 0 10000 10000" preserveAspectRatio="xMidYMid">
-                <g visibility="visible" id="Slide_1_page5">
-                    <path fill="none" stroke="rgb(0,0,0)" strokeWidth="500" strokeLinejoin="round"
+            <svg className={this.props.className} onClick={this.props.onClick} width="100mm" height="100mm"
+                 viewBox="0 0 10000 10000">
+                <g>
+                    <path fill="none" stroke="rgb(0,0,0)" strokeWidth="300" strokeLinejoin="round"
                           d="M 0,346 L 2994,346"/>
-                    <path fill="none" stroke="rgb(0,0,0)" strokeWidth="500" strokeLinejoin="round"
+                    <path fill="none" stroke="rgb(0,0,0)" strokeWidth="300" strokeLinejoin="round"
                           d="M 0,1919 L 2178,1919"/>
-                    <path fill="none" stroke="rgb(0,0,0)" strokeWidth="500" strokeLinejoin="round"
+                    <path fill="none" stroke="rgb(0,0,0)" strokeWidth="300" strokeLinejoin="round"
                           d="M 0,3350 L 2178,3350"/>
-                    <path fill="none" stroke="rgb(0,0,0)" strokeWidth="500" strokeLinejoin="round"
+                    <path fill="none" stroke="rgb(0,0,0)" strokeWidth="300" strokeLinejoin="round"
                           d="M 0,4924 L 2178,4924"/>
-                    <path fill="none" stroke="rgb(0,0,0)" strokeWidth="500" strokeLinejoin="round"
+                    <path fill="none" stroke="rgb(0,0,0)" strokeWidth="300" strokeLinejoin="round"
                           d="M 0,6498 L 2722,6498"/>
-                    <path fill="none" stroke="rgb(0,0,0)" strokeWidth="500" strokeLinejoin="round"
+                    <path fill="none" stroke="rgb(0,0,0)" strokeWidth="300" strokeLinejoin="round"
                           d="M 0,8072 L 7622,8072"/>
-                    <path fill="none" stroke="rgb(0,0,0)" strokeWidth="500" strokeLinejoin="round"
+                    <path fill="none" stroke="rgb(0,0,0)" strokeWidth="300" strokeLinejoin="round"
                           d="M 0,9646 L 7622,9646"/>
-                    <path fill="none" stroke="rgb(0,0,0)" strokeWidth="500" strokeLinejoin="round"
+                    <path fill="none" stroke="rgb(0,0,0)" strokeWidth="300" strokeLinejoin="round"
                           d="M 5483,7213 C 4956,7213 4509,7071 4053,6761 3598,6450 3270,6063 3007,5525 2744,4986 2624,4458 2624,3836 2624,3214 2744,2686 3007,2148 3270,1609 3598,1222 4053,911 4509,601 4956,459 5482,459 6009,459 6456,601 6912,911 7367,1222 7695,1609 7958,2147 8221,2686 8341,3214 8341,3836 8341,4458 8221,4986 7958,5524 7695,6063 7367,6450 6912,6761 6456,7071 6009,7213 5483,7213 L 5483,7213 Z"/>
                     <path fill="none" stroke="rgb(0,0,0)" strokeWidth="1000" strokeLinejoin="round"
                           d="M 7422,6355 L 9600,8931"/>
@@ -79,4 +75,8 @@ export default class SvgInsights extends Component<{}, {}> {
         );
     }
 
+}
+interface SvgProps {
+    className?: string;
+    onClick?: () => void;
 }

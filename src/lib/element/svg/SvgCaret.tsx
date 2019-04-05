@@ -3,10 +3,6 @@ import {Component} from 'react';
 
 export default class SvgCaret extends Component<SvgProps, {}> {
 
-    constructor(props: SvgProps) {
-        super(props);
-    }
-
     public render() {
         return (
             <svg className={"lto-svg-caret " + this.props.className || ""} viewBox="0 0 10000 10000" onClick={this.props.onClick}>
