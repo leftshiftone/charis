@@ -37,8 +37,8 @@ export class DropdownItem extends React.Component<DropdownProps, DropdownState> 
         if (toBoolean(this.props.center)) {
             classes.push("lto-center");
         }
-        if (this.props.class) {
-            classes.push(this.props.class);
+        if (this.props.className) {
+            classes.push(this.props.className);
         }
 
         return <li className={classes.join(" ")} onClick={(e: MouseEvent<HTMLLIElement>) => {
@@ -69,7 +69,7 @@ export class DropdownItem extends React.Component<DropdownProps, DropdownState> 
 }
 
 interface DropdownProps {
-    class?: string;
+    className?: string;
     disabled?: boolean;
     center?: boolean;
     onClick: ((e: MouseEvent<HTMLLIElement>) => void) | Assembly;
