@@ -13,7 +13,7 @@ export default abstract class AbstractSvgComponent extends Component<SvgProps, {
         }
 
         return (
-            <svg className={className.join(" ")} onClick={this.onClick} width="100mm" height="100mm"
+            <svg className={className.join(" ")} onClick={this.onClick.bind(this)} width="100mm" height="100mm"
                  viewBox="0 0 10000 10000">
                 {this.renderSvg()}
             </svg>

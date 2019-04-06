@@ -55,6 +55,7 @@ import SvgLabel from "./lib/element/svg/SvgLabel";
 import SvgOption from "./lib/element/svg/SvgOption";
 import SvgPlay from "./lib/element/svg/SvgPlay";
 import SvgPlus from "./lib/element/svg/SvgPlus";
+import SvgPlusBold from "./lib/element/svg/SvgPlusBold";
 import SvgPower from "./lib/element/svg/SvgPower";
 import SvgQuestion from "./lib/element/svg/SvgQuestion";
 import SvgStackbar from "./lib/element/svg/SvgStackbar";
@@ -224,6 +225,7 @@ export {
     SvgOption,
     SvgPlay,
     SvgPlus,
+    SvgPlusBold,
     SvgPower,
     SvgQuestion,
     SvgStackbar,
