@@ -1,12 +1,15 @@
 import * as React from 'react';
 import {Component} from 'react';
+import ModalAssembly from "../../api/assembly/ModalAssembly";
+import {MouseEvent} from "react";
+import Emitter from "../../api/emitter/Emitter";
 
 export default class SvgFlow extends Component<SvgProps, {}> {
 
     public render() {
         return (
             <svg width="100mm" height="100mm" viewBox="0 0 10000 10000" className={this.props.className}
-                 onClick={this.props.onClick}>
+                 onClick={this.onClick}>
                 <g>
                     <path fill="rgb(0,0,0)" stroke="none"
                           d="M 2990,246 C 2730,246 2470,506 2470,766 L 2470,2846 C 2470,3106 2730,3367 2990,3367 L 7124,3367 C 7384,3367 7645,3106 7645,2846 L 7645,766 C 7645,506 7384,246 7124,246 L 2990,246 Z"/>
@@ -58,9 +61,17 @@ export default class SvgFlow extends Component<SvgProps, {}> {
         );
     }
 
+    private onClick(e: MouseEvent<SVGElement>) {
+        if (typeof this.props.onClick === "function") {
+            (this.props.onClick as ((e: MouseEvent<SVGElement>) => void))(e);
+        } else {
+            Emitter.emit("charis:modalContainer:show", this.props.onClick);
+        }
+    }
+
 }
 
 interface SvgProps {
     className?: string;
-    onClick?: () => void;
+    onClick: ((e: MouseEvent<SVGElement>) => void) | ModalAssembly;
 }

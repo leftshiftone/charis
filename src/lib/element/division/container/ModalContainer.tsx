@@ -18,8 +18,9 @@ import * as React from 'react';
 import Emitter from "../../../api/emitter/Emitter";
 import Modal from "../Modal";
 import Assembly from "../../../api/assembly/ModalAssembly";
+import EmitterAwareComponent from "../../../api/emitter/EmitterAwareComponent";
 
-export default class ModalContainer extends React.Component<{}, ModalContainerState> {
+export default class ModalContainer extends EmitterAwareComponent<{}, ModalContainerState> {
 
     constructor(props: {}) {
         super(props);
@@ -47,12 +48,12 @@ export default class ModalContainer extends React.Component<{}, ModalContainerSt
 
     public componentDidMount() {
         const $this = this;
-        Emitter.addListener("charis:modalContainer:show", (args: any[]) => {
+        this.register(Emitter.addListener("charis:modalContainer:show", (args: any[]) => {
             $this.setState({assembly: args[0]});
-        });
-        Emitter.addListener("charis:modalContainer:hide", () => {
+        }));
+        this.register(Emitter.addListener("charis:modalContainer:hide", () => {
             $this.setState({assembly: null});
-        });
+        }));
     }
 
 }

@@ -29,6 +29,9 @@
         font-weight: bold;
         color: rgb(40, 40, 40);
     }
+    & ul svg {
+        padding: 10px;
+    }
 }
 .lto-navigation-vertical > div {
     position: fixed;
