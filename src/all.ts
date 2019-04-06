@@ -100,6 +100,8 @@ import SvgFingerprint from "./lib/element/svg/SvgFingerprint";
 import SvgPattern from "./lib/element/svg/SvgPattern";
 import SvgRotate from "./lib/element/svg/SvgRotate";
 import SvgRule from "./lib/element/svg/SvgRule";
+import SvgNotification from "./lib/element/svg/SvgNotification";
+import SvgSuggestion from "./lib/element/svg/SvgSuggestion";
 
 if (typeof document !== "undefined") {
     require("./lib/styles.scss");
@@ -255,5 +257,7 @@ export {
     SvgFingerprint,
     SvgPattern,
     SvgRotate,
-    SvgRule
+    SvgRule,
+    SvgNotification,
+    SvgSuggestion
 };

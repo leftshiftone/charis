@@ -3,6 +3,7 @@ import {Component, MouseEvent} from 'react';
 import ModalAssembly from "../../api/assembly/ModalAssembly";
 import Emitter from "../../api/emitter/Emitter";
 import IIcon from "../../api/IIcon";
+import {isNotNull} from "../../api/Objects";
 
 export default abstract class AbstractSvgComponent extends Component<SvgProps, {}> implements IIcon {
 
@@ -23,10 +24,12 @@ export default abstract class AbstractSvgComponent extends Component<SvgProps, {
     protected abstract renderSvg():React.ReactElement<any>;
 
     private onClick(e: MouseEvent<SVGElement>) {
-        if (typeof this.props.onClick === "function") {
-            (this.props.onClick as ((e: MouseEvent<SVGElement>) => void))(e);
-        } else {
-            Emitter.emit("charis:modalContainer:show", this.props.onClick);
+        if (isNotNull(this.props.onClick)) {
+            if (typeof this.props.onClick === "function") {
+                (this.props.onClick as ((e: MouseEvent<SVGElement>) => void))(e);
+            } else {
+                Emitter.emit("charis:modalContainer:show", this.props.onClick);
+            }
         }
     }
 
