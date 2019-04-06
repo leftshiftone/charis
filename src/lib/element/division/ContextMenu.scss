@@ -30,3 +30,9 @@ div.lto-context-menu .lto-dropdown-item:hover {
     background: rgb(40, 40, 40);
     color: white;
 }
+div.lto-context-menu .lto-dropdown:hover > div > svg path {
+    fill: cyan;
+}
+div.lto-context-menu .lto-dropdown-item:hover svg path {
+    fill: cyan;
+}

@@ -14,7 +14,7 @@ export default class VerticalNavigation extends React.Component<NavigationProps,
         const collapsed = toBoolean(this.props.collapsed);
 
         return (
-            <nav className={`lto-navigation-vertical ${collapsed ? "lto-collapsed" : ""} ${this.props.className}`}>
+            <nav className={`lto-navigation-vertical ${collapsed ? "lto-collapsed" : ""} ${this.props.className || ""}`}>
                 <div>
                     {this.props.children}
                 </div>
