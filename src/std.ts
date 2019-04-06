@@ -42,7 +42,6 @@ import SunburstService from "./lib/element/vis/SunburstService";
 import Small from "./lib/element/text/Small";
 import Medium from "./lib/element/text/Medium";
 import VerticalNavigation from "./lib/element/navigation/VerticalNavigation";
-import SvgBlock from "./lib/element/svg/SvgBlock";
 import SvgFolder from "./lib/element/svg/SvgFolder";
 import SvgCaret from "./lib/element/svg/SvgCaret";
 import SvgCheck from "./lib/element/svg/SvgCheck";
@@ -185,7 +184,6 @@ export {
     AdminLayout,
     AuthnLayout,
     // svg
-    SvgBlock,
     SvgFolder,
     Modal,
     ModalContainer,
