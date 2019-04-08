@@ -21,8 +21,8 @@ export default class Margin extends Component<MarginProps, {}> {
         if (this.props.bottom) {
             classes.push("lto-margin-b" + this.props.bottom);
         }
-        if (this.props.class) {
-            classes.push(this.props.class);
+        if (this.props.className) {
+            classes.push(this.props.className);
         }
         classes.push(this.props.width === "auto" ? "" : "lto-width-full");
         classes.push(this.props.height === "auto" ? "" : "lto-height-full");
@@ -38,7 +38,7 @@ interface MarginProps {
     left?: 5 | 10 | 15 | 20 | 25;
     top?: 5 | 10 | 15 | 20 | 25;
     bottom?: 5 | 10 | 15 | 20 | 25;
-    class?:string;
+    className?:string;
     width?:"full" | "auto";
     height?:"full" | "auto";
 }

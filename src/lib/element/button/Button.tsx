@@ -68,7 +68,7 @@ interface ButtonProps {
     disabled?: boolean;
     style?: CSSProperties;
     className?: string;
-    children: string;
+    children: (string | HTMLBRElement) | (string | HTMLBRElement)[];
     block?: boolean;
     autoFocus?:boolean;
 }

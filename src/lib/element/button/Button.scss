@@ -10,3 +10,9 @@
 .lto-charis-button:focus {
     outline: 0;
 }
+.lto-charis-button:hover {
+    filter: brightness(80%);
+}
+.lto-charis-button.lto-disabled {
+    filter: grayscale(75%);
+}

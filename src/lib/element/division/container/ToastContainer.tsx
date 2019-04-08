@@ -28,7 +28,7 @@ export default class ToastContainer extends React.Component<{}, ToastContainerSt
     }
 
     public render() {
-        return (<div className="lto-toast-container">
+        return (<div className="lto-toast-container" style={{zIndex: 1000}}>
             {
                 this.state.assemblies.map((assembly) => {
                     return <Toast key={assembly[0]} assembly={assembly[1]}

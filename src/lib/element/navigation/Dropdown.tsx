@@ -32,13 +32,11 @@ export class Dropdown extends React.Component<DropdownProps, DropdownState> {
         const $this = this;
         if (this.div && this.props.action === "hover") {
             this.div.addEventListener("mouseenter", () => {
-                console.log("mouseenter");
                 if (!this.state.collapsed) {
                     $this.setState({collapsed: true});
                 }
             });
             this.div.addEventListener("mouseleave", () => {
-                console.log("mouseleave");
                 if (this.state.collapsed) {
                     $this.setState({collapsed: false});
                 }

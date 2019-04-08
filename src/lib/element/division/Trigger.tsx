@@ -17,5 +17,5 @@ export default class Trigger extends Component<TriggerProps, {}> {
 
 interface TriggerProps {
     type: string;
-    onClick: (e: MouseEvent<HTMLDivElement>) => void;
+    onClick?: (e: MouseEvent<HTMLDivElement>) => void;
 }
