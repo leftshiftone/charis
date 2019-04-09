@@ -102,6 +102,8 @@ import SvgRotate from "./lib/element/svg/SvgRotate";
 import SvgRule from "./lib/element/svg/SvgRule";
 import SvgNotification from "./lib/element/svg/SvgNotification";
 import SvgSuggestion from "./lib/element/svg/SvgSuggestion";
+import SvgImport from "./lib/element/svg/SvgImport";
+import SvgExport from "./lib/element/svg/SvgExport";
 
 if (typeof document !== "undefined") {
     require("./lib/styles.scss");
@@ -259,5 +261,7 @@ export {
     SvgRotate,
     SvgRule,
     SvgNotification,
-    SvgSuggestion
+    SvgSuggestion,
+    SvgImport,
+    SvgExport
 };
