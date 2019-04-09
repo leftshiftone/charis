@@ -30,7 +30,7 @@ export default class AuthnLayout extends Component<AuthnProps, AuthnState> {
             <div>
                 {this.renderUsername()}
                 {this.renderPassword()}
-                <Button block={true} onClick={() => this.props.authn(this.state)}>Anmelden</Button>
+                <Button autoFocus={true} block={true} onClick={() => this.props.authn(this.state)}>Anmelden</Button>
             </div>
         );
     }

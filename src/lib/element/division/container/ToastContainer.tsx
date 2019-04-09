@@ -19,8 +19,9 @@ import Emitter from "../../../api/emitter/Emitter";
 import ToastAssembly from "../../../api/assembly/ToastAssembly";
 import Toast from "../Toast";
 import {id} from "../../../api/Random";
+import EmitterAwareComponent from "../../../api/emitter/EmitterAwareComponent";
 
-export default class ToastContainer extends React.Component<{}, ToastContainerState> {
+export default class ToastContainer extends EmitterAwareComponent<{}, ToastContainerState> {
 
     constructor(props: {}) {
         super(props);
@@ -40,12 +41,12 @@ export default class ToastContainer extends React.Component<{}, ToastContainerSt
 
     public componentDidMount() {
         const $this = this;
-        Emitter.addListener("charis:toastContainer:show", (args: any[]) => {
+        this.register(Emitter.addListener("charis:toastContainer:show", (args: any[]) => {
             $this.setState({assemblies: [[id(), args[0]], ...this.state.assemblies]});
-        });
-        Emitter.addListener("charis:toastContainer:hide", (args: any[]) => {
+        }));
+        this.register(Emitter.addListener("charis:toastContainer:hide", (args: any[]) => {
             $this.removeAssembly(args[0]);
-        });
+        }));
     }
 
     private removeAssembly(assembly: ToastAssembly) {

@@ -40,13 +40,18 @@ export class DropdownItem extends React.Component<DropdownProps, DropdownState> 
         if (this.props.className) {
             classes.push(this.props.className);
         }
+        if (this.props.selected) {
+            classes.push("lto-selected");
+        }
 
         return <li className={classes.join(" ")} onClick={(e: MouseEvent<HTMLLIElement>) => {
             if (toBoolean(this.props.disabled, true)) {
-                if (!this.isModal()) {
-                    (this.props.onClick as ((e: MouseEvent<HTMLLIElement>) => void))(e);
-                } else {
-                    Emitter.emit("charis:modalContainer:show", this.props.onClick);
+                if (this.props.onClick) {
+                    if (!this.isModal()) {
+                        (this.props.onClick as ((e: MouseEvent<HTMLLIElement>) => void))(e);
+                    } else {
+                        Emitter.emit("charis:modalContainer:show", this.props.onClick);
+                    }
                 }
             }
         }}>
@@ -72,9 +77,10 @@ interface DropdownProps {
     className?: string;
     disabled?: boolean;
     center?: boolean;
-    onClick: ((e: MouseEvent<HTMLLIElement>) => void) | Assembly;
+    onClick?: ((e: MouseEvent<HTMLLIElement>) => void) | Assembly;
     children?: string | React.ReactElement<any>[] | React.ReactElement<any>;
     icon?: React.ReactElement<IIcon>;
+    selected?:boolean;
 }
 
 interface DropdownState {

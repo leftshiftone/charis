@@ -9,7 +9,7 @@
         color: #5f6978;
     }
     & g {
-        fill: #5f6978;
+        fill: cyan;
     }
     & ul {
         position:relative;
@@ -29,7 +29,9 @@
         width: 100%;
         &:hover {
             background: rgb(40, 40, 40);
-            color: white;
+            & span {
+                color: white;
+            }
         }
         & span {
             position: absolute;

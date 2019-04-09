@@ -40,3 +40,6 @@ ul.collapsed > .lto-dropdown-item {
     visibility: inherit;
     transition: opacity 0.5s ease-out;
 }
+.lto-dropdown-item.lto-selected {
+    filter: brightness(50%);
+}

@@ -14,5 +14,6 @@
     filter: brightness(80%);
 }
 .lto-charis-button.lto-disabled {
-    filter: grayscale(75%);
+    filter: grayscale(50%);
+    color: rgb(100, 100, 100);
 }
