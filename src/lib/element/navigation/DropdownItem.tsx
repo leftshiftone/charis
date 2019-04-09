@@ -52,6 +52,9 @@ export class DropdownItem extends React.Component<DropdownProps, DropdownState> 
                     } else {
                         Emitter.emit("charis:modalContainer:show", this.props.onClick);
                     }
+                } else {
+                    e.preventDefault();
+                    e.stopPropagation();
                 }
             }
         }}>

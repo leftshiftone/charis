@@ -42,13 +42,6 @@ export class Dropdown extends React.Component<DropdownProps, DropdownState> {
                 }
             });
         }
-        else if (this.div && this.props.action === "click") {
-            this.div.addEventListener("blur", () => {
-                if (this.state.collapsed) {
-                    $this.setState({collapsed: false});
-                }
-            });
-        }
     }
 
     public render() {
@@ -56,7 +49,7 @@ export class Dropdown extends React.Component<DropdownProps, DropdownState> {
             <div ref={div => this.div = div} className={"lto-dropdown " + (this.props.class || "")} onClick={this.toggle.bind(this)}>
                 <div style={{clear:"both", display:"inline-block", width: "100%"}}>
                     {this.props.icon}
-                    <span>{this.props.text}</span>
+                    {this.props.text ? <span>{this.props.text}</span> : <React.Fragment />}
                     <div className={`lto-caret ${this.state.collapsed ? "collapsed" : ""}`} />
                 </div>
                 <ul className={`${this.state.collapsed ? "collapsed" : ""}`}>
@@ -72,7 +65,7 @@ export class Dropdown extends React.Component<DropdownProps, DropdownState> {
 
 }
 interface DropdownProps {
-    text: string;
+    text?: string;
     icon?: React.ReactElement<IIcon>;
     class?: string;
     children: React.ReactElement<DropdownItem | DropdownSeparator> | React.ReactElement<DropdownItem | DropdownSeparator>[];
