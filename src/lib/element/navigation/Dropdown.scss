@@ -34,8 +34,9 @@
     border: 7px solid transparent;
     border-top-color: black;
     transition: transform 0.25s ease;
+    transform: rotate(90deg);
 }
 .lto-caret.collapsed{
-    transform: rotate(90deg);
+    transform: none;
     transition: transform 0.25s ease;
 }
