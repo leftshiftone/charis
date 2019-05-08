@@ -37,7 +37,16 @@
             color: rgb(100, 100, 100) !important;
         }
         & path {
-            fill: rgb(100, 100, 100) !important;
+            fill: rgb(100, 100, 100);
+            stroke: rgb(100, 100, 100) !important;
+        }
+    }
+    & .lto-dropdown-item:hover {
+        & span {
+            color: rgb(100, 100, 100) !important;
+        }
+        & path {
+            fill: rgb(100, 100, 100);
             stroke: rgb(100, 100, 100) !important;
         }
     }
