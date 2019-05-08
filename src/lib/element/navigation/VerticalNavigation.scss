@@ -32,6 +32,15 @@
     & ul svg {
         padding: 10px;
     }
+    & .lto-dropdown:hover {
+        & span {
+            color: rgb(100, 100, 100) !important;
+        }
+        & path {
+            fill: rgb(100, 100, 100) !important;
+            stroke: rgb(100, 100, 100) !important;
+        }
+    }
 }
 .lto-navigation-vertical > div {
     position: fixed;
