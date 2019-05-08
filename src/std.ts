@@ -75,6 +75,7 @@ import {Banner} from "./lib/element/division/Banner";
 import Content from "./lib/element/division/Content";
 import Tree, {TreeRenderable} from "./lib/element/division/Tree";
 import ContextMenu from "./lib/element/division/ContextMenu";
+import Tooltip from "./lib/element/division/Tooltip";
 // svg
 import Circle from "./lib/element/vis/Circle";
 import Graph from "./lib/element/vis/Graph";
@@ -121,6 +122,7 @@ if (typeof document !== "undefined") {
     require("./lib/element/division/Content.scss");
     require("./lib/element/division/Tree.scss");
     require("./lib/element/division/ContextMenu.scss");
+    require("./lib/element/division/Tooltip.scss");
     // vis
     require("./lib/element/vis/Circle.scss");
 }
@@ -217,5 +219,6 @@ export {
     Graph,
     EditableSpan,
     SeventyThirtyLayout,
-    ContextMenu
+    ContextMenu,
+    Tooltip
 };

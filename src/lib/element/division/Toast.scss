@@ -1,6 +1,6 @@
 .lto-toast-container {
     position: absolute;
-    top: 0;
+    top: 60px;
     right: 0;
     width: 250px;
 }
@@ -19,6 +19,7 @@
 }
 .lto-toast-error {
     background: crimson;
+    color: white;
 }
 .lto-toast button {
     background: none;

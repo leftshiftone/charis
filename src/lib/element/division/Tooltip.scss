@@ -1,0 +1,52 @@
+.lto-tooltip {
+  position: relative;
+  display: inline-block;
+}
+.lto-tooltip .lto-tooltip-text {
+  visibility: hidden;
+  width: 150px;
+  background-color: cyan;
+  color: #555 !important;
+  text-align: center;
+  padding: 5px 0;
+  border-radius: 6px;
+  position: absolute !important;
+  z-index: 1;
+  opacity: 0;
+  transition: opacity 0.6s;
+}
+.lto-tooltip-top .lto-tooltip-text {
+  bottom: 125%;
+  left: 50%;
+}
+.lto-tooltip-right .lto-tooltip-text {
+  left: 50%;
+  margin-left: 20px;
+  margin-top: -5px;
+}
+
+/* Tooltip arrow */
+.lto-tooltip .lto-tooltip-text::after {
+  content: "";
+  position: absolute;
+  border-width: 5px;
+  border-style: solid;
+}
+.lto-tooltip-top .lto-tooltip-text::after {
+  margin-left: -5px;
+  top: 100%;
+  left: 50%;
+  border-color: cyan transparent transparent transparent;
+}
+.lto-tooltip-right .lto-tooltip-text::after {
+  margin-top: -5px;
+  top: 50%;
+  right: 100%;
+  border-color: transparent cyan transparent transparent;
+}
+
+/* Show the tooltip text when you mouse over the tooltip container */
+.lto-tooltip:hover .lto-tooltip-text {
+  visibility: visible;
+  opacity: 1;
+}
