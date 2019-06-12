@@ -1,10 +1,10 @@
 {
     "name": "charis",
-    "version": "0.42.0",
+    "version": "0.44.0",
     "description": "Leftshift One React component library",
     "main": "dist/lib/all.js",
     "dependencies": {
-        "gaia-js-sdk-convey": "^0.16.0"
+        "gaia-js-sdk-convey": "^0.54.0"
     },
     "devDependencies": {
         "@babel/cli": "^7.2.3",
