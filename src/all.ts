@@ -105,6 +105,7 @@ import SvgNotification from "./lib/element/svg/SvgNotification";
 import SvgSuggestion from "./lib/element/svg/SvgSuggestion";
 import SvgImport from "./lib/element/svg/SvgImport";
 import SvgExport from "./lib/element/svg/SvgExport";
+import SvgMessage from "./lib/element/svg/SvgMessage";
 
 if (typeof document !== "undefined") {
     require("./lib/styles.scss");
@@ -148,6 +149,7 @@ if (typeof document !== "undefined") {
     require("./lib/element/division/Tooltip.scss");
     // vis
     require("./lib/element/vis/Circle.scss");
+    require("./lib/element/vis/Line.scss");
 }
 
 export {
@@ -266,5 +268,6 @@ export {
     SvgSuggestion,
     SvgImport,
     SvgExport,
+    SvgMessage,
     Tooltip
 };

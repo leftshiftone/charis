@@ -25,7 +25,7 @@ export class Dropdown extends React.Component<DropdownProps, DropdownState> {
 
     constructor(props: Readonly<DropdownProps>) {
         super(props);
-        this.state = {collapsed:false};
+        this.state = {collapsed:this.props.collapsed || false};
     }
 
     public componentDidMount() {
@@ -70,6 +70,7 @@ interface DropdownProps {
     class?: string;
     children: React.ReactElement<DropdownItem | DropdownSeparator> | React.ReactElement<DropdownItem | DropdownSeparator>[];
     action?:"click" | "hover";
+    collapsed?:boolean;
 }
 interface DropdownState {
     collapsed:boolean;

@@ -6,9 +6,6 @@ export default class Line extends React.Component<LineProps, {}> {
 
     private div:HTMLDivElement | null = null;
 
-    // @ts-ignore
-    private heatmap:GaiaSDK.Line;
-
     constructor(props:LineProps) {
         super(props);
     }

@@ -1,7 +1,7 @@
 import * as React from 'react';
 import AbstractSvgComponent from "./AbstractSvgComponent";
 
-export default class SvgInsights extends AbstractSvgComponent {
+export default class SvgMessage extends AbstractSvgComponent {
 
     protected renderSvg() {
         return (
