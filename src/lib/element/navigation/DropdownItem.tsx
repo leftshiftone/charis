@@ -20,6 +20,7 @@ import IIcon from "../../api/IIcon";
 import {toBoolean} from "../../api/Boolean";
 import Assembly from "../../api/assembly/ModalAssembly";
 import Emitter from "../../api/emitter/Emitter";
+import Tooltip from "../division/Tooltip";
 
 export class DropdownItem extends React.Component<DropdownProps, DropdownState> {
 
@@ -58,7 +59,11 @@ export class DropdownItem extends React.Component<DropdownProps, DropdownState> 
                 }
             }
         }}>
-            {this.props.icon}
+            {
+                this.props.tooltip ?
+                    <Tooltip text={this.props.tooltip} orientation={"right"}>{this.props.icon}</Tooltip> :
+                    this.props.icon
+            }
             {this.renderContent()}
         </li>;
     }
@@ -84,6 +89,7 @@ interface DropdownProps {
     children?: string | React.ReactElement<any>[] | React.ReactElement<any>;
     icon?: React.ReactElement<IIcon>;
     selected?:boolean;
+    tooltip?:string;
 }
 
 interface DropdownState {

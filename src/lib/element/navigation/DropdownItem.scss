@@ -43,3 +43,21 @@ ul.collapsed > .lto-dropdown-item {
 .lto-dropdown-item.lto-selected {
     filter: brightness(50%);
 }
+.lto-dropdown-item.lto-disabled:hover {
+    & a {
+        color: rgba(100, 100, 100, 0.5) !important;
+    }
+    & path {
+        fill: rgba(100, 100, 100, 0.5);
+        stroke: rgba(100, 100, 100, 0.5) !important;
+    }
+}
+.lto-dropdown-item.lto-disabled {
+    & a {
+        color: rgba(100, 100, 100, 0.5) !important;
+    }
+    & path {
+        fill: rgba(100, 100, 100, 0.5);
+        stroke: rgba(100, 100, 100, 0.5) !important;
+    }
+}
