@@ -45,7 +45,7 @@ export class DropdownItem extends React.Component<DropdownProps, DropdownState> 
         }
 
         return <li className={classes.join(" ")} onClick={(e: MouseEvent<HTMLLIElement>) => {
-            if (toBoolean(this.props.disabled, true)) {
+            if (!toBoolean(this.props.disabled, false)) {
                 if (this.props.onClick) {
                     if (!this.isModal()) {
                         (this.props.onClick as ((e: MouseEvent<HTMLLIElement>) => void))(e);
