@@ -61,7 +61,8 @@ export class DropdownItem extends React.Component<DropdownProps, DropdownState> 
         }}>
             {
                 this.props.tooltip ?
-                    <Tooltip text={this.props.tooltip} orientation={"right"}>{this.props.icon}</Tooltip> :
+                    <Tooltip text={this.props.tooltip}
+                             orientation={this.props.tooltipOrientation || "right"}>{this.props.icon}</Tooltip> :
                     this.props.icon
             }
             {this.renderContent()}
@@ -88,8 +89,9 @@ interface DropdownProps {
     onClick?: ((e: MouseEvent<HTMLLIElement>) => void) | Assembly;
     children?: string | React.ReactElement<any>[] | React.ReactElement<any>;
     icon?: React.ReactElement<IIcon>;
-    selected?:boolean;
-    tooltip?:string;
+    selected?: boolean;
+    tooltip?: string;
+    tooltipOrientation?: "top" | "bottom" | "right" | "left";
 }
 
 interface DropdownState {
