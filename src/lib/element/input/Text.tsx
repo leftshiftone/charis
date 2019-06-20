@@ -1,7 +1,6 @@
 import * as React from 'react';
-import {CSSProperties} from 'react';
+import {CSSProperties, KeyboardEvent} from 'react';
 import {toBoolean} from "../../api/Boolean";
-import {KeyboardEvent} from "react";
 
 export default class Text extends React.Component<TextProps, TextState> {
 
@@ -47,7 +46,7 @@ export default class Text extends React.Component<TextProps, TextState> {
 interface TextProps {
     value?: string;
     onChange: (e: string) => void;
-    onKeyPress: (e: KeyboardEvent) => void;
+    onKeyPress?: (e: KeyboardEvent) => void;
     placeholder?: string;
     style?: CSSProperties;
     className?: string;
