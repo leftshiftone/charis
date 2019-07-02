@@ -5640,10 +5640,10 @@ functional-red-black-tree@^1.0.1:
   resolved "https://registry.yarnpkg.com/functional-red-black-tree/-/functional-red-black-tree-1.0.1.tgz#1b0ab3bd553b2a0d6399d29c0e3ea0b252078327"
   integrity sha1-GwqzvVU7Kg1jmdKcDj6gslIHgyc=
 
-gaia-js-sdk-convey@^0.54.0:
-  version "0.54.0"
-  resolved "https://registry.yarnpkg.com/gaia-js-sdk-convey/-/gaia-js-sdk-convey-0.54.0.tgz#848fbbd1dadc558af8a4c3e3475abcc30b303ae5"
-  integrity sha512-O199mFkD2lRuoOvV4jdf4P8rTrP9/vYkDlkcW4JD0H6StlI9EpbPARaDBclK4VdwmghUNaDRb3HGnriEdigeEg==
+gaia-js-sdk-convey@^0.57.0:
+  version "0.57.0"
+  resolved "https://registry.yarnpkg.com/gaia-js-sdk-convey/-/gaia-js-sdk-convey-0.57.0.tgz#ac694eadea94b589971f35b3f7c5bcb95a6f579e"
+  integrity sha512-5+Rd1fNjSqhxmWHYoN4yeKstMpTMyqzB5X5oHyaOcxR0nbNPZRDnhXmbik082bfFZ2INia42gMSHm30jerU8lA==
   dependencies:
     "@zxing/library" "^0.12.4"
     d3 "^5.8.0"
@@ -5658,6 +5658,7 @@ gaia-js-sdk-convey@^0.54.0:
     mqtt "^2.18.8"
     node-ical "^0.9.2"
     recordrtc "5.5.4"
+    reveal.js "^3.8.0"
 
 gauge@~2.7.3:
   version "2.7.4"
@@ -10930,6 +10931,11 @@ retry@0.12.0:
   version "0.12.0"
   resolved "https://registry.yarnpkg.com/retry/-/retry-0.12.0.tgz#1b42a6266a21f07421d1b0b54b7dc167b01c013b"
   integrity sha1-G0KmJmoh8HQh0bC1S33BZ7AcATs=
+
+reveal.js@^3.8.0:
+  version "3.8.0"
+  resolved "https://registry.yarnpkg.com/reveal.js/-/reveal.js-3.8.0.tgz#9a2818e366d46237f0e64c00f50a05f2340cd50f"
+  integrity sha512-MQ+UBXIIL9IyBXhkLZWb/AG5h5/BedmnHXHIEavMBawNLVfAayvTrwNlDjGn4tf/CQ2CTJR8jSyIdu4RpfoLpg==
 
 rgb-regex@^1.0.1:
   version "1.0.1"
