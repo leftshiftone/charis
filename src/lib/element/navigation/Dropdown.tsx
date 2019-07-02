@@ -41,7 +41,7 @@ export class Dropdown extends React.Component<DropdownProps, DropdownState> {
                     $this.setState({collapsed: false});
                 }
             });
-        } else if (this.div) {
+        } else if (this.div && this.props.autoCollapse === true) {
             document.addEventListener("click", (e:any) => {
                 if (this.state.collapsed && !this.isChildOf(e.target, this.div)) {
                     $this.setState({collapsed: false});
@@ -87,6 +87,7 @@ interface DropdownProps {
     children: React.ReactElement<DropdownItem | DropdownSeparator> | React.ReactElement<DropdownItem | DropdownSeparator>[];
     action?:"click" | "hover";
     collapsed?:boolean;
+    autoCollapse?:boolean;
 }
 interface DropdownState {
     collapsed:boolean;
