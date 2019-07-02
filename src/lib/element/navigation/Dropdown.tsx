@@ -42,11 +42,21 @@ export class Dropdown extends React.Component<DropdownProps, DropdownState> {
                 }
             });
         } else if (this.div) {
-            this.div.addEventListener("blur", () => {
-                if (this.state.collapsed) {
+            document.addEventListener("click", (e:any) => {
+                if (this.state.collapsed && !this.isChildOf(e.target, this.div)) {
                     $this.setState({collapsed: false});
                 }
             }, false)
+        }
+    }
+
+    private isChildOf(child:any, parent:any):boolean {
+        if (child.parentNode === parent) {
+            return true;
+        } else if (child.parentNode === null) {
+            return false;
+        } else {
+            return this.isChildOf(child.parentNode, parent);
         }
     }
 
