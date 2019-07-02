@@ -7,7 +7,7 @@ export default class Content extends Component<ContentProps, {}> {
 
     public render() {
         return (
-            <div className={"lto-content"} style={{width: "100%", height: "100%"}}>
+            <div className={"lto-content"}>
                 <Margin bottom={15} height={"auto"}>
                     {this.props.heading}
                     <Right>

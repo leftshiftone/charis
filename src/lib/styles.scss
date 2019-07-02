@@ -31,3 +31,13 @@ a {
 .lto-invalid {
     border: 1px solid orangered !important;
 }
+
+/* firefox specific */
+section {
+    //noinspection CssUnknownProperty
+    scrollbar-color: rgb(25, 70, 75) slategrey;
+}
+div {
+    //noinspection CssUnknownProperty
+    scrollbar-color: rgb(25, 70, 75) slategrey;
+}

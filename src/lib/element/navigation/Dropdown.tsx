@@ -41,6 +41,12 @@ export class Dropdown extends React.Component<DropdownProps, DropdownState> {
                     $this.setState({collapsed: false});
                 }
             });
+        } else if (this.div) {
+            this.div.addEventListener("blur", () => {
+                if (this.state.collapsed) {
+                    $this.setState({collapsed: false});
+                }
+            }, false)
         }
     }
 
