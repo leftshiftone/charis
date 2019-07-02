@@ -20,7 +20,8 @@ export default class Text extends React.Component<TextProps, TextState> {
                    value={this.props.value || ""}
                    onChange={(e) => {
                        this.validate();
-                       return this.props.onChange(e.target.value);
+                       if (this.props.readonly !== true)
+                           this.props.onChange(e.target.value);
                    }}
                    placeholder={this.props.placeholder}
                    pattern={this.props.pattern}
@@ -53,6 +54,7 @@ interface TextProps {
     pattern?: string;
     required?: boolean;
     autoFocus?: boolean;
+    readonly?: boolean;
 }
 
 interface TextState {

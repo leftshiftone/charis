@@ -24,7 +24,7 @@ export default abstract class AbstractSvgComponent extends Component<SvgProps, {
     protected abstract renderSvg():React.ReactElement<any>;
 
     private onClick(e: MouseEvent<SVGElement>) {
-        if (isNotNull(this.props.onClick)) {
+        if (isNotNull(this.props.onClick) && this.props.disabled !== true) {
             if (typeof this.props.onClick === "function") {
                 (this.props.onClick as ((e: MouseEvent<SVGElement>) => void))(e);
             } else {
@@ -38,4 +38,5 @@ export default abstract class AbstractSvgComponent extends Component<SvgProps, {
 interface SvgProps {
     className?: string;
     onClick?: ((e: MouseEvent<SVGElement>) => void) | ModalAssembly;
+    disabled?: boolean;
 }
