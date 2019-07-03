@@ -14,8 +14,12 @@ class AdminLayout extends Component<MainProps, {}> {
     public render() {
         return (
             <main className={`lto-layout-admin ${this.props.className || ""}`}>
-                <ModalContainer/>
-                <ToastContainer/>
+                {
+                    this.props.initModalContainer !== false ? <ModalContainer/> : <div />
+                }
+                {
+                    this.props.initToastContainer !== false ? <ToastContainer/> : <div />
+                }
                 {this.props.verticalNavigation}
                 {this.props.horizontalNavigation}
                 <section className={(this.props.collapsed ? "lto-collapsed" : "")}>
@@ -32,6 +36,8 @@ interface MainProps {
     horizontalNavigation: React.ReactElement<HorizontalNavigation>;
     collapsed: boolean;
     className?:string;
+    initModalContainer?:boolean;
+    initToastContainer?:boolean;
 }
 
 export default AdminLayout;
