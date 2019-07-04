@@ -5,6 +5,8 @@ import Email from "../../element/input/Email";
 import Password from "../../element/input/Password";
 import Button from "../../element/button/Button";
 import {toBoolean} from "../../api/Boolean";
+import ToastContainer from "../../element/division/container/ToastContainer";
+import ModalContainer from "../../element/division/container/ModalContainer";
 
 export default class AuthnLayout extends Component<AuthnProps, AuthnState> {
 
@@ -16,6 +18,8 @@ export default class AuthnLayout extends Component<AuthnProps, AuthnState> {
     public render() {
         return (
             <div className={`lto-layout-authn ${this.props.className || ""}`}>
+                <ToastContainer />
+                <ModalContainer />
                 <div>
                     {this.props.header}
                     {this.renderChallenge()}
