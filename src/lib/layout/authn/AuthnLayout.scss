@@ -2,7 +2,7 @@
     width: 100%;
     height: 100%;
 }
-.lto-layout-authn > div {
+.lto-layout-authn > div:nth-last-child {
     padding-top: 10%;
     width: 25%;
     margin-left: auto;
