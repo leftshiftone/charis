@@ -17,7 +17,7 @@
 import * as React from 'react';
 import {CSSProperties, MouseEvent} from 'react';
 import {toBoolean} from "../../api/Boolean";
-import Assembly from "../../api/assembly/ModalAssembly";
+import ModalAssembly from "../../api/assembly/ModalAssembly";
 
 export default class Button extends React.Component<ButtonProps, ButtonState> {
 
@@ -42,7 +42,7 @@ export default class Button extends React.Component<ButtonProps, ButtonState> {
         return (
             <React.Fragment>
                 <button className={classNames.join(" ")} onClick={this.onClick.bind(this)} style={this.props.style}
-                autoFocus={this.props.autoFocus || false}>
+                        autoFocus={this.props.autoFocus || false}>
                     {this.props.children}
                 </button>
             </React.Fragment>
@@ -64,13 +64,13 @@ export default class Button extends React.Component<ButtonProps, ButtonState> {
 }
 
 interface ButtonProps {
-    onClick: ((e: MouseEvent<HTMLButtonElement>) => void) | Assembly;
+    onClick: ((e: MouseEvent<HTMLButtonElement>) => void) | ModalAssembly;
     disabled?: boolean;
     style?: CSSProperties;
     className?: string;
     children: (string | React.ReactElement<HTMLBRElement>) | (string | React.ReactElement<HTMLBRElement>)[];
     block?: boolean;
-    autoFocus?:boolean;
+    autoFocus?: boolean;
 }
 
 interface ButtonState {

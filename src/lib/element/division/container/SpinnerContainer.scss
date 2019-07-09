@@ -1,7 +1,12 @@
+.lto-spinner-container div {
+    z-index: 10000;
+}
+
 .lto-spinner-container > div:first-child {
     position: absolute;
     background: black;
     opacity: 0.5;
+    transition: opacity 0.5s ease-in;
     width: 100%;
     height: 100%;
 }

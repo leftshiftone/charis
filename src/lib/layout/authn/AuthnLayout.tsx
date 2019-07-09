@@ -16,6 +16,14 @@ export default class AuthnLayout extends Component<AuthnProps, AuthnState> {
         this.state = {username: this.props.initUsername, password: this.props.initPassword};
     }
 
+    public componentWillMount(): void {
+        document.addEventListener("keydown", this.onEnter);
+    }
+
+    public componentWillUnmount(): void {
+        document.removeEventListener("keydown", this.onEnter);
+    }
+
     public render() {
         return (
             <div className={`lto-layout-authn ${this.props.className || ""}`}>
@@ -36,13 +44,13 @@ export default class AuthnLayout extends Component<AuthnProps, AuthnState> {
             <div>
                 {this.renderUsername()}
                 {this.renderPassword()}
-                <Button autoFocus={true} block={true} onClick={() => this.authenticate()}>Anmelden</Button>
+                <Button block={true} onClick={() => this.authenticate()}>Anmelden</Button>
             </div>
         );
     }
 
     private onEnter(e: KeyboardEvent) {
-        if (e.keyCode === 13 || e.code === "Enter" || e.code === "enter") {
+        if (e.keyCode === 13 || e.code === "Enter" || e.code === "enter" || e.which === 13) {
             this.authenticate();
         }
     }
