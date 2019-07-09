@@ -66,6 +66,7 @@ import SeventyThirtyLayout from "./lib/layout/seventythirty/SeventyThirtyLayout"
 import Modal from './lib/element/division/Modal';
 import ModalContainer from "./lib/element/division/container/ModalContainer";
 import ToastContainer from "./lib/element/division/container/ToastContainer";
+import SpinnerContainer from "./lib/element/division/container/SpinnerContainer";
 import {Group} from "./lib/element/division/Group";
 import Headline from "./lib/element/text/Headline";
 import Trigger from "./lib/element/division/Trigger";
@@ -147,6 +148,7 @@ if (typeof document !== "undefined") {
     require("./lib/element/division/Tree.scss");
     require("./lib/element/division/ContextMenu.scss");
     require("./lib/element/division/Tooltip.scss");
+    require("./lib/element/division/container/SpinnerContainer.scss");
     // vis
     require("./lib/element/vis/Circle.scss");
     require("./lib/element/vis/Line.scss");
@@ -214,6 +216,7 @@ export {
     SvgFolder,
     Modal,
     ModalContainer,
+    SpinnerContainer,
     Toast,
     ToastContainer,
     Group,

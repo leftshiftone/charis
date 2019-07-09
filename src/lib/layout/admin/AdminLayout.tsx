@@ -4,6 +4,7 @@ import VerticalNavigation from "../../element/navigation/VerticalNavigation";
 import HorizontalNavigation from "../../element/navigation/HorizontalNavigation";
 import ModalContainer from "../../element/division/container/ModalContainer";
 import ToastContainer from "../../element/division/container/ToastContainer";
+import SpinnerContainer from "../../element/division/container/SpinnerContainer";
 
 class AdminLayout extends Component<MainProps, {}> {
 
@@ -19,6 +20,9 @@ class AdminLayout extends Component<MainProps, {}> {
                 }
                 {
                     this.props.initToastContainer !== false ? <ToastContainer/> : <div />
+                }
+                {
+                    this.props.initSpinnerContainer !== false ? <SpinnerContainer/> : <div />
                 }
                 {this.props.verticalNavigation}
                 {this.props.horizontalNavigation}
@@ -38,6 +42,7 @@ interface MainProps {
     className?:string;
     initModalContainer?:boolean;
     initToastContainer?:boolean;
+    initSpinnerContainer?:boolean;
 }
 
 export default AdminLayout;

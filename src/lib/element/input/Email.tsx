@@ -8,6 +8,7 @@ export default class Email extends React.Component<EmailProps, {}> {
                    className={"lto-input-email"}
                    value={this.props.value || ""}
                    onChange={this.props.onChange}
+                   onKeyPress={this.props.onKeyPress}
                    placeholder={this.props.placeholder || "Username"}
                    required={true}/>
         );
@@ -17,6 +18,7 @@ export default class Email extends React.Component<EmailProps, {}> {
 interface EmailProps {
     value?: string;
     onChange: (e: any) => void;
+    onKeyPress?: (e: any) => void;
     placeholder?: string;
     style?: CSSProperties;
     class?: string;

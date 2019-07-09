@@ -7,6 +7,7 @@ import Button from "../../element/button/Button";
 import {toBoolean} from "../../api/Boolean";
 import ToastContainer from "../../element/division/container/ToastContainer";
 import ModalContainer from "../../element/division/container/ModalContainer";
+import SpinnerContainer from "../../element/division/container/SpinnerContainer";
 
 export default class AuthnLayout extends Component<AuthnProps, AuthnState> {
 
@@ -18,8 +19,9 @@ export default class AuthnLayout extends Component<AuthnProps, AuthnState> {
     public render() {
         return (
             <div className={`lto-layout-authn ${this.props.className || ""}`}>
-                <ToastContainer />
-                <ModalContainer />
+                <ToastContainer/>
+                <ModalContainer/>
+                <SpinnerContainer />
                 <div>
                     {this.props.header}
                     {this.renderChallenge()}
@@ -34,9 +36,19 @@ export default class AuthnLayout extends Component<AuthnProps, AuthnState> {
             <div>
                 {this.renderUsername()}
                 {this.renderPassword()}
-                <Button autoFocus={true} block={true} onClick={() => this.props.authn(this.state)}>Anmelden</Button>
+                <Button autoFocus={true} block={true} onClick={() => this.authenticate()}>Anmelden</Button>
             </div>
         );
+    }
+
+    private onEnter(e: KeyboardEvent) {
+        if (e.keyCode === 13) {
+            this.authenticate();
+        }
+    }
+
+    private authenticate() {
+        this.props.authn(this.state);
     }
 
     private update = (update: any) => this.setState(Object.assign(this.state, update));
@@ -44,19 +56,21 @@ export default class AuthnLayout extends Component<AuthnProps, AuthnState> {
     private renderUsername() {
         if (toBoolean(this.props.showUsername)) {
             return <Margin key={"username"} bottom={20}>
-                <Email value={this.state.username} onChange={e => this.update({username: e.target.value})}/>
+                <Email value={this.state.username} onChange={e => this.update({username: e.target.value})}
+                       onKeyPress={(e) => this.onEnter(e)}/>
             </Margin>;
         }
-        return <Fragment />;
+        return <Fragment/>;
     }
 
     private renderPassword() {
         if (toBoolean(this.props.showPassword)) {
             return <Margin key={"password"} bottom={20}>
-                <Password value={this.state.password} onChange={e => this.update({password: e.target.value})}/>
+                <Password value={this.state.password} onChange={e => this.update({password: e.target.value})}
+                          onKeyPress={(e) => this.onEnter(e)}/>
             </Margin>;
         }
-        return <Fragment />;
+        return <Fragment/>;
     }
 
 }
@@ -69,7 +83,7 @@ interface AuthnProps {
 
     header?: React.ReactElement<any>;
     footer?: React.ReactElement<any>;
-    authn: (data:AuthnState) => void;
+    authn: (data: AuthnState) => void;
     className?: string;
 }
 

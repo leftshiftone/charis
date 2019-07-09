@@ -8,6 +8,7 @@ export default class Password extends React.Component<PasswordProps, {}> {
                    className={"lto-input-password"}
                    value={this.props.value || ""}
                    onChange={this.props.onChange}
+                   onKeyPress={this.props.onKeyPress}
                    placeholder={this.props.placeholder || "Password"}
                    required={true}/>
         );
@@ -17,6 +18,7 @@ export default class Password extends React.Component<PasswordProps, {}> {
 interface PasswordProps {
     value?: string;
     onChange: (e: any) => void;
+    onKeyPress?: (e: any) => void;
     placeholder?: string;
     style?: CSSProperties;
     class?: string;
