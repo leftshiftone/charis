@@ -42,7 +42,7 @@ export default class AuthnLayout extends Component<AuthnProps, AuthnState> {
     }
 
     private onEnter(e: KeyboardEvent) {
-        if (e.keyCode === 13) {
+        if (e.keyCode === 13 || e.code === "Enter" || e.code === "enter") {
             this.authenticate();
         }
     }
@@ -51,13 +51,15 @@ export default class AuthnLayout extends Component<AuthnProps, AuthnState> {
         this.props.authn(this.state);
     }
 
-    private update = (update: any) => this.setState(Object.assign(this.state, update));
+    private update (update: any) {
+        this.setState(Object.assign(this.state, update));
+    }
 
     private renderUsername() {
         if (toBoolean(this.props.showUsername)) {
             return <Margin key={"username"} bottom={20}>
                 <Email value={this.state.username} onChange={e => this.update({username: e.target.value})}
-                       onKeyPress={(e) => this.onEnter(e)}/>
+                       onInput={(e) => this.onEnter(e)}/>
             </Margin>;
         }
         return <Fragment/>;
@@ -67,7 +69,7 @@ export default class AuthnLayout extends Component<AuthnProps, AuthnState> {
         if (toBoolean(this.props.showPassword)) {
             return <Margin key={"password"} bottom={20}>
                 <Password value={this.state.password} onChange={e => this.update({password: e.target.value})}
-                          onKeyPress={(e) => this.onEnter(e)}/>
+                          onInput={(e) => this.onEnter(e)}/>
             </Margin>;
         }
         return <Fragment/>;

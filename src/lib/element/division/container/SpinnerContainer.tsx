@@ -26,17 +26,20 @@ export default class SpinnerContainer extends EmitterAwareComponent<{}, ModalCon
     }
 
     public render() {
-        return (
-            <div className={"lto-spinner-container"}>
-                <div />
-                <div className="sk-folding-cube">
-                    <div className="sk-cube1 sk-cube"/>
-                    <div className="sk-cube2 sk-cube"/>
-                    <div className="sk-cube4 sk-cube"/>
-                    <div className="sk-cube3 sk-cube"/>
+        if (this.state.show) {
+            return (
+                <div className={"lto-spinner-container"}>
+                    <div/>
+                    <div className="sk-folding-cube">
+                        <div className="sk-cube1 sk-cube"/>
+                        <div className="sk-cube2 sk-cube"/>
+                        <div className="sk-cube4 sk-cube"/>
+                        <div className="sk-cube3 sk-cube"/>
+                    </div>
                 </div>
-            </div>
-        );
+            );
+        }
+        return <div />;
     }
 
     public componentDidMount() {
