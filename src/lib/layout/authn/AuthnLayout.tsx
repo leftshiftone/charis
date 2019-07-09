@@ -17,11 +17,15 @@ export default class AuthnLayout extends Component<AuthnProps, AuthnState> {
     }
 
     public componentWillMount(): void {
-        document.addEventListener("keydown", this.onEnter);
+        if (typeof document !== "undefined") {
+            document.addEventListener("keydown", this.onEnter);
+        }
     }
 
     public componentWillUnmount(): void {
-        document.removeEventListener("keydown", this.onEnter);
+        if (typeof document !== "undefined") {
+            document.removeEventListener("keydown", this.onEnter);
+        }
     }
 
     public render() {
