@@ -4,7 +4,7 @@
     "description": "Leftshift One React component library",
     "main": "dist/lib/all.js",
     "dependencies": {
-        "gaia-js-sdk-convey": "^0.57.0"
+        "gaia-js-sdk-convey": "^0.59.0"
     },
     "devDependencies": {
         "@babel/cli": "^7.2.3",
