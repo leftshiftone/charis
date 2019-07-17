@@ -29,7 +29,7 @@ export default class ToastContainer extends EmitterAwareComponent<{}, ToastConta
     }
 
     public render() {
-        return (<div className="lto-toast-container" style={{zIndex: 1000}}>
+        return (<div className="lto-toast-container" style={{zIndex: 10000}}>
             {
                 this.state.assemblies.map((assembly) => {
                     return <Toast key={assembly[0]} assembly={assembly[1]}
