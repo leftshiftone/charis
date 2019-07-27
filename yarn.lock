@@ -2427,6 +2427,11 @@ brorand@^1.0.1:
   resolved "https://registry.yarnpkg.com/brorand/-/brorand-1.1.0.tgz#12c25efe40a45e3c323eb8675a0a0ce57b22371f"
   integrity sha1-EsJe/kCkXjwyPrhnWgoM5XsiNx8=
 
+browser-image-compression@^1.0.6:
+  version "1.0.6"
+  resolved "https://registry.yarnpkg.com/browser-image-compression/-/browser-image-compression-1.0.6.tgz#3d710aea5a6bb1cb6804737418fceb8a527e79f2"
+  integrity sha512-gb++v1g26BgV/I9qrdXNzirFLDGcOiPmobVxuTJymNTFHbbxJnZ74o1GRoYHjDTgOt1Iypqh4Wk1K03C8tjXHQ==
+
 browser-process-hrtime@^0.1.2:
   version "0.1.3"
   resolved "https://registry.yarnpkg.com/browser-process-hrtime/-/browser-process-hrtime-0.1.3.tgz#616f00faef1df7ec1b5bf9cfe2bdc3170f26c7b4"
@@ -5640,12 +5645,13 @@ functional-red-black-tree@^1.0.1:
   resolved "https://registry.yarnpkg.com/functional-red-black-tree/-/functional-red-black-tree-1.0.1.tgz#1b0ab3bd553b2a0d6399d29c0e3ea0b252078327"
   integrity sha1-GwqzvVU7Kg1jmdKcDj6gslIHgyc=
 
-gaia-js-sdk-convey@^0.59.0:
-  version "0.59.0"
-  resolved "https://registry.yarnpkg.com/gaia-js-sdk-convey/-/gaia-js-sdk-convey-0.59.0.tgz#67a8b2dcea1a1bfce2d0291be65e5d49cecbc140"
-  integrity sha512-zXUPqk5yCDxFlXfMinI/ulhjGgAXwqUgflCjaEDdz5kybqA2GXOvva1H0AbAN7GrfoeDDEnEy2E4JrquiRAT6w==
+gaia-js-sdk-convey@^0.63.0:
+  version "0.63.0"
+  resolved "https://registry.yarnpkg.com/gaia-js-sdk-convey/-/gaia-js-sdk-convey-0.63.0.tgz#71ee1f83c234278a431ea315b57355b85bb8f72e"
+  integrity sha512-+OdctcibXTF2xwVyx9DYBaS/nnqpkQt8raEP+2gnPuRyPJMqoATZ3pb5DIUItRMTdPTh8U1Gjf1HGqwvyUFIgw==
   dependencies:
     "@zxing/library" "^0.12.4"
+    browser-image-compression "^1.0.6"
     d3 "^5.8.0"
     d3-3d "^0.0.9"
     d3-sankey "^0.7.1"
