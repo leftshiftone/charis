@@ -30,7 +30,7 @@ export default class Switch extends React.Component<ToggleButtonProps, {}> {
 
     public render() {
         return (
-            <div ref={div => this.toggle = div} className={`lto-switch`}>
+            <div ref={div => this.toggle = div} className={`lto-switch`} style={this.props.style}>
                 <div className="inner-container">
                     <div className="toggle">
                         <p>{this.props.label2}</p>
