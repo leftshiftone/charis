@@ -70,6 +70,9 @@ export default class Switch extends React.Component<ToggleButtonProps, {}> {
                 this.props.onClick(toggleNumber);
             });
         }
+        if (this.props.value === false) {
+            this.props.onClick(false);
+        }
     }
 
 }
@@ -80,4 +83,5 @@ interface ToggleButtonProps {
     label2: string;
     style?: CSSProperties;
     class?: string;
+    value?: boolean;
 }
