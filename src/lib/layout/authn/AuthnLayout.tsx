@@ -53,11 +53,11 @@ export default class AuthnLayout extends Component<AuthnProps, AuthnState> {
         );
     }
 
-    private onEnter(e: KeyboardEvent) {
+    private onEnter = (e: KeyboardEvent) => {
         if (e.keyCode === 13 || e.code === "Enter" || e.code === "enter" || e.which === 13) {
             this.authenticate();
         }
-    }
+    };
 
     private authenticate() {
         this.props.authn(this.state);
