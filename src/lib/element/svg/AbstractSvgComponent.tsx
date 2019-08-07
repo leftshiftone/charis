@@ -36,6 +36,7 @@ export default abstract class AbstractSvgComponent extends Component<SvgProps, {
 }
 
 interface SvgProps {
+    color?: string;
     className?: string;
     onClick?: ((e: MouseEvent<SVGElement>) => void) | ModalAssembly;
     disabled?: boolean;

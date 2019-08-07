@@ -17,7 +17,7 @@
 import * as React from 'react';
 import {CSSProperties, MouseEvent} from 'react';
 import {toBoolean} from "../../api/Boolean";
-import Assembly from "../../api/assembly/ModalAssembly";
+import ModalAssembly from "../../api/assembly/ModalAssembly";
 
 export default class Toggle extends React.Component<ToggleProps, ToggleState> {
 
@@ -40,7 +40,7 @@ export default class Toggle extends React.Component<ToggleProps, ToggleState> {
                     onClick={(e: MouseEvent<HTMLButtonElement>) => {
                         if (!disabled) {
                             if (!this.isModal()) {
-                                (this.props.onClick as ((e: MouseEvent<HTMLButtonElement>) => void))(e);
+                                this.executeHandler(e);
                                 this.setState({clicked: !this.state.clicked});
                             } else {
                                 this.setState({clicked: !this.state.clicked});
@@ -56,11 +56,15 @@ export default class Toggle extends React.Component<ToggleProps, ToggleState> {
         return typeof this.props.onClick !== "function";
     }
 
+    private executeHandler(e:any) {
+        (this.props.onClick as ((e: MouseEvent<HTMLButtonElement>, clicked: boolean) => void))(e, this.state.clicked);
+    }
+
 }
 
 interface ToggleProps {
     clicked?: boolean;
-    onClick: ((e: MouseEvent<HTMLButtonElement>) => void) | Assembly;
+    onClick: ((e: MouseEvent<HTMLButtonElement>, clicked: boolean) => void) | ModalAssembly;
     disabled?: boolean;
     style?: CSSProperties;
     className?: string;
