@@ -62,8 +62,9 @@ class TreeElement extends Component<TreeElementProps, TreeElementState> {
 
         classes.push(this.state.collapsed ? "lto-collapsed" : "");
         classes.push(this.props.selected(this.props.element) ? "lto-selected" : "");
+        classes.push(this.props.element.disabled ? "lto-disabled" : "");
 
-        array.push(<li key={"a"} ref={div => this.div = div} className={classes.join(" ")}
+        array.push(<li ref={div => this.div = div} className={classes.join(" ")}
                        onClick={() => this.onClick()}>
             {isNotEmpty(this.props.element.list) ? <SvgCaret onClick={() => this.collapse()}/> :
                 <div style={{paddingLeft: "20px", display: "inline-block"}}/>}
@@ -79,8 +80,10 @@ class TreeElement extends Component<TreeElementProps, TreeElementState> {
     private collapse = () => this.setState({collapsed: !this.state.collapsed});
 
     private onClick() {
-        this.props.onChange(this.props.element);
-        this.props.onSelect(this.props.element);
+        if (this.props.element.disabled === undefined || this.props.element.disabled === null || !this.props.element.disabled) {
+            this.props.onChange(this.props.element);
+            this.props.onSelect(this.props.element);
+        }
     }
 
     private renderTreeElements(elements: TreeRenderable[]) {
@@ -123,9 +126,10 @@ interface TreeElementState {
 
 export interface TreeRenderable {
     name: string;
-    icon: any,
+    icon: any;
     head: TreeRenderable;
     list: TreeRenderable[];
+    disabled: boolean;
 }
 
 export function getTreePath(renderable: TreeRenderable, path: string[] = []): string[] {
