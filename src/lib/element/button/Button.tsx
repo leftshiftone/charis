@@ -32,10 +32,10 @@ export default class Button extends React.Component<ButtonProps, ButtonState> {
         if (this.props.className) {
             classNames.push(this.props.className);
         }
-        if (this.props.disabled) {
+        if (this.props.disabled === true) {
             classNames.push("lto-disabled");
         }
-        if (this.props.block) {
+        if (this.props.block === true) {
             classNames.push("lto-block");
         }
 
