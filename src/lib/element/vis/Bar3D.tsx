@@ -1,17 +1,16 @@
 import * as React from 'react';
-// @ts-ignore
-import * as Convey from 'gaia-js-sdk-convey/dist/lib/vis';
+import * as Convey from 'gaia-js-sdk-convey';
 
 export default class Bar3D extends React.Component<Bar3DProps, {}> {
 
-    private div:HTMLDivElement | null = null;
+    private div: HTMLDivElement | null = null;
 
-    constructor(props:Bar3DProps) {
+    constructor(props: Bar3DProps) {
         super(props);
     }
 
     public render() {
-        return (<div style={{height:"100%"}} ref={div => this.div = div} />);
+        return (<div style={{height: "100%"}} ref={div => this.div = div}/>);
     }
 
     public componentDidMount() {
@@ -49,16 +48,17 @@ export default class Bar3D extends React.Component<Bar3DProps, {}> {
     }
 
 }
+
 interface Bar3DProps {
-    data:Promise<any>;
-    color?:[string];
-    scale?:number;
-    origin?: (w:number, h:number) => number[];
-    gridStroke?:string;
-    gridFill?:string;
-    legendColor?:string;
-    strokeWidth?:number;
-    textX?:(d:any) => string;
-    textY?:(d:any) => string;
-    textZ?:(d:any) => string;
+    data: Promise<any>;
+    color?: [string];
+    scale?: number;
+    origin?: (w: number, h: number) => number[];
+    gridStroke?: string;
+    gridFill?: string;
+    legendColor?: string;
+    strokeWidth?: number;
+    textX?: (d: any) => string;
+    textY?: (d: any) => string;
+    textZ?: (d: any) => string;
 }

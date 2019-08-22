@@ -1,17 +1,16 @@
 import * as React from 'react';
-// @ts-ignore
-import * as Convey from 'gaia-js-sdk-convey/dist/lib/vis';
+import * as Convey from 'gaia-js-sdk-convey';
 
 export default class Heatmap extends React.Component<HeatmapProps, {}> {
 
-    private div:HTMLDivElement | null = null;
+    private div: HTMLDivElement | null = null;
 
-    constructor(props:HeatmapProps) {
+    constructor(props: HeatmapProps) {
         super(props);
     }
 
     public render() {
-        return (<div style={{height:"100%"}} ref={div => this.div = div} />);
+        return (<div style={{height: "100%"}} ref={div => this.div = div}/>);
     }
 
     public componentDidMount() {
@@ -39,10 +38,11 @@ export default class Heatmap extends React.Component<HeatmapProps, {}> {
     }
 
 }
+
 interface HeatmapProps {
-    data:Promise<any>;
-    color?:[string];
-    itemSizeX?:number;
-    itemSizeY?:number;
-    colorGroup?:[number, number] | string;
+    data: Promise<any>;
+    color?: [string];
+    itemSizeX?: number;
+    itemSizeY?: number;
+    colorGroup?: [number, number] | string;
 }
