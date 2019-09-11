@@ -5645,10 +5645,10 @@ functional-red-black-tree@^1.0.1:
   resolved "https://registry.yarnpkg.com/functional-red-black-tree/-/functional-red-black-tree-1.0.1.tgz#1b0ab3bd553b2a0d6399d29c0e3ea0b252078327"
   integrity sha1-GwqzvVU7Kg1jmdKcDj6gslIHgyc=
 
-gaia-js-sdk-convey@^0.77.0:
-  version "0.77.0"
-  resolved "https://registry.yarnpkg.com/gaia-js-sdk-convey/-/gaia-js-sdk-convey-0.77.0.tgz#6e73042a4878d985aa7197c603b2fa93169e1b38"
-  integrity sha512-l4xUHysJudVTNF68gdCrQ61zW0M6YWTY3q8BLuPeBpoqTn+q4VfKVlaY+iNIdgC7II2BJYENMdvdzrl7QRo5Gw==
+gaia-js-sdk-convey@*:
+  version "0.79.0"
+  resolved "https://registry.yarnpkg.com/gaia-js-sdk-convey/-/gaia-js-sdk-convey-0.79.0.tgz#8733b462d8afe57a6da1d2f338bada0606af802b"
+  integrity sha512-qvbJu5j1QVFvFrGncVYE3s0SIw6JMAX7teqDlJZ1X/9fo7ep2E/uHjZWTvtUB2YrBj6qbUMiLurS49A/XHHjaA==
   dependencies:
     "@zxing/library" "^0.12.4"
     browser-image-compression "^1.0.6"
