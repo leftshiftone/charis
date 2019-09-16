@@ -14,6 +14,10 @@ export default class Sunburst extends React.Component<SunburstProps, {}> {
     }
 
     public componentDidMount() {
+        this.init();
+    }
+
+    private init(): void {
         if (this.div) {
             // @ts-ignore
             const options = new Convey.SunburstOptions();
@@ -35,6 +39,11 @@ export default class Sunburst extends React.Component<SunburstProps, {}> {
         }
     }
 
+    shouldComponentUpdate(nextProps: Readonly<SunburstProps>, nextState: Readonly<{}>, nextContext: any): boolean {
+        document.querySelector(".lto-vis-sunburst")!.remove();
+        this.init();
+        return true;
+    }
 }
 
 interface SunburstProps {
