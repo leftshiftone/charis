@@ -14,6 +14,10 @@ export default class Doughnut extends React.Component<DoughnutProps, {}> {
     }
 
     public componentDidMount() {
+        this.init();
+    }
+
+    private init(): void {
         if (this.div) {
             // @ts-ignore
             const options = new Convey.DoughnutOptions();
@@ -28,6 +32,12 @@ export default class Doughnut extends React.Component<DoughnutProps, {}> {
             this.div.appendChild(element);
             doughnut.init(element);
         }
+    }
+
+    shouldComponentUpdate(nextProps: Readonly<DoughnutProps>, nextState: Readonly<{}>, nextContext: any): boolean {
+        document.querySelector(".lto-vis-doughnut")!.remove();
+        this.init();
+        return true;
     }
 
 }
