@@ -13,7 +13,7 @@ export default class Stackedbar extends React.Component<StackedbarProps, {}> {
         return (<div style={{height: "100%"}} ref={div => this.div = div}/>);
     }
 
-    public componentDidMount() {
+    private init() {
         if (this.div) {
             // @ts-ignore
             const options = new Convey.StackedbarOptions();
@@ -31,6 +31,18 @@ export default class Stackedbar extends React.Component<StackedbarProps, {}> {
             this.div.appendChild(element);
             bar.init(element);
         }
+    }
+
+    public componentDidMount() {
+        this.init();
+    }
+
+
+
+    shouldComponentUpdate(nextProps: Readonly<StackedbarProps>, nextState: Readonly<{}>, nextContext: any): boolean {
+        document.querySelector(".lto-vis-stackedbar")!.remove();
+        this.init();
+        return true;
     }
 
 }
