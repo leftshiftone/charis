@@ -16,7 +16,7 @@ export default class Circle extends React.Component<CircleProps, {}> {
                     this.props.text ?
                         <text className="circle-chart__percent" x="16.91549431" y="20.5" alignmentBaseline="central"
                               textAnchor="middle"
-                              fontSize="4">text
+                              fontSize="4">{this.props.text}
                         </text> :
                         <React.Fragment />
                 }
