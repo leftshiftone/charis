@@ -1,17 +1,16 @@
 import * as React from 'react';
-// @ts-ignore
-import * as Convey from 'gaia-js-sdk-convey/dist/lib/vis';
+import * as Convey from 'gaia-js-sdk-convey';
 
 export default class Line extends React.Component<LineProps, {}> {
 
-    private div:HTMLDivElement | null = null;
+    private div: HTMLDivElement | null = null;
 
-    constructor(props:LineProps) {
+    constructor(props: LineProps) {
         super(props);
     }
 
     public render() {
-        return (<div className={this.props.class} style={{height: "100%"}} ref={div => this.div = div} />);
+        return (<div className={this.props.class} style={{height: "100%"}} ref={div => this.div = div}/>);
     }
 
     public componentDidMount() {
@@ -34,8 +33,9 @@ export default class Line extends React.Component<LineProps, {}> {
     }
 
 }
+
 interface LineProps {
-    data:Promise<any>;
-    class?:string;
-    isDefined?:(d:any) => boolean;
+    data: Promise<any>;
+    class?: string;
+    isDefined?: (d: any) => boolean;
 }

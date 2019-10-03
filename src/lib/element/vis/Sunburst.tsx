@@ -1,17 +1,16 @@
 import * as React from 'react';
-// @ts-ignore
-import * as Convey from 'gaia-js-sdk-convey/dist/lib/vis';
+import * as Convey from 'gaia-js-sdk-convey';
 
 export default class Sunburst extends React.Component<SunburstProps, {}> {
 
-    private div:HTMLDivElement | null = null;
+    private div: HTMLDivElement | null = null;
 
-    constructor(props:SunburstProps) {
+    constructor(props: SunburstProps) {
         super(props);
     }
 
     public render() {
-        return (<div style={{height:"100%"}} ref={div => this.div = div} />);
+        return (<div style={{height: "100%"}} ref={div => this.div = div}/>);
     }
 
     public componentDidMount() {
@@ -37,8 +36,9 @@ export default class Sunburst extends React.Component<SunburstProps, {}> {
     }
 
 }
+
 interface SunburstProps {
-    data:Promise<any>;
-    color?:[string];
-    legendBorder?:{w: number, h: number, s: number, t: number, r: number};
+    data: Promise<any>;
+    color?: [string];
+    legendBorder?: { w: number, h: number, s: number, t: number, r: number };
 }

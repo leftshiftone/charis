@@ -1,17 +1,16 @@
 import * as React from 'react';
-// @ts-ignore
-import * as Convey from 'gaia-js-sdk-convey/dist/lib/vis';
+import * as Convey from 'gaia-js-sdk-convey';
 
 export default class Sankey extends React.Component<SankeyProps, {}> {
 
-    private div:HTMLDivElement | null = null;
+    private div: HTMLDivElement | null = null;
 
-    constructor(props:SankeyProps) {
+    constructor(props: SankeyProps) {
         super(props);
     }
 
     public render() {
-        return (<div style={{height:"100%"}} ref={div => this.div = div} />);
+        return (<div style={{height: "100%"}} ref={div => this.div = div}/>);
     }
 
     public componentDidMount() {
@@ -35,7 +34,8 @@ export default class Sankey extends React.Component<SankeyProps, {}> {
     }
 
 }
+
 interface SankeyProps {
-    data:Promise<any>;
-    color?:[string];
+    data: Promise<any>;
+    color?: [string];
 }
