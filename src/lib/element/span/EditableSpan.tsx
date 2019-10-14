@@ -29,7 +29,7 @@ export default class EditableSpan extends React.Component<EditableLabelProps, {}
     }
 
     public render() {
-        const editable = toBoolean(this.props.disabled, true);
+        const editable = !toBoolean(this.props.disabled);
         return (<span ref={span => this.span = span} contentEditable={editable} suppressContentEditableWarning={true}>
             {this.props.children}
             </span>);
