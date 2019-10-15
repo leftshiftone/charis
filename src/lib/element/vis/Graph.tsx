@@ -28,6 +28,9 @@ export default class Graph extends React.Component<GraphProps, {}> {
             if (this.props.charge) {
                 options.charge = this.props.charge;
             }
+            if (this.props.fontSize) {
+                options.fontSize = this.props.fontSize;
+            }
 
             const graph = new Convey.Graph(options);
 
@@ -42,6 +45,7 @@ interface GraphProps {
     data:Promise<any>;
     className?:string;
     radius?:number;
+    fontSize?:number;
     distance?:(node:any, index:number, links:Array<any>) => number;
     collision?:(node:any, index:number, nodes:Array<any>) => number;
     charge?:(node:any, index:number, data:Array<any>) => number;
