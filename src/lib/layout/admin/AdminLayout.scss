@@ -4,7 +4,7 @@
 
     & > section {
         height: calc(100% - 60px);
-        width: 85%;
+        width: calc(100% - 240px);
         -webkit-transition: width 0.25s;
         transition: width 0.25s;
         padding: 30px;

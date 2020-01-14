@@ -1,7 +1,7 @@
 .lto-navigation-vertical {
     background-image: linear-gradient(141deg, #00ffc8 0%, #00ffc8 51%, #00ffc8 75%);
     height: 100%;
-    width: 15%;
+    width: 240px;
     display: inline-block;
     float: left;
     -webkit-transition: width 0.25s;
@@ -55,7 +55,7 @@
 }
 .lto-navigation-vertical > div {
     position: fixed;
-    width: 15%;
+    width: 240px;
 }
 .lto-navigation-vertical.lto-collapsed {
     width: 70px;
