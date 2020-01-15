@@ -1,6 +1,6 @@
 .lto-navigation-horizontal {
     height: 60px;
-    width: 85%;
+    width: calc(100% - 240px);
     float: left;
     border-bottom: 1px solid #5f6978;
     -webkit-transition: width 0.25s;
