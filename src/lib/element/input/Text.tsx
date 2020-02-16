@@ -41,7 +41,6 @@ export default class Text extends React.Component<TextProps, TextState> {
             this.setState({valid: true});
         }
     }
-
 }
 
 interface TextProps {

@@ -1,5 +1,5 @@
 import * as React from 'react';
-import * as Convey from 'gaia-js-sdk-convey';
+import * as Convey from '@leftshiftone/convey';
 
 export default class Heatmap extends React.Component<HeatmapProps, {}> {
 

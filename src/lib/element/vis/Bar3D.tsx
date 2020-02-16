@@ -1,5 +1,5 @@
 import * as React from 'react';
-import * as Convey from 'gaia-js-sdk-convey';
+import * as Convey from '@leftshiftone/convey';
 
 export default class Bar3D extends React.Component<Bar3DProps, {}> {
 
