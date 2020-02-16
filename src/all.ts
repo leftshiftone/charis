@@ -62,6 +62,7 @@ import SvgStackbar from "./lib/element/svg/SvgStackbar";
 import SvgUser from "./lib/element/svg/SvgUser";
 import SvgDoubleArrowLeft from "./lib/element/svg/SvgDoubleArrowLeft";
 import SvgDoubleArrowRight from "./lib/element/svg/SvgDoubleArrowRight";
+import SvgClock from "./lib/element/svg/SvgClock";
 import AdminLayout from "./lib/layout/admin/AdminLayout";
 import AuthnLayout from "./lib/layout/authn/AuthnLayout";
 import SeventyThirtyLayout from "./lib/layout/seventythirty/SeventyThirtyLayout";
@@ -228,6 +229,7 @@ export {
     Content,
     SvgCaret,
     SvgCheck,
+    SvgClock,
     SvgCode,
     SvgDocument,
     SvgEdit,

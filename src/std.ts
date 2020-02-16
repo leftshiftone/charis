@@ -85,6 +85,7 @@ import Graph from "./lib/element/vis/Graph";
 import EditableSpan from "./lib/element/span/EditableSpan";
 import SvgClose from "./lib/element/svg/SvgClose";
 import Toast from "./lib/element/division/Toast";
+import SvgClock from "./lib/element/svg/SvgClock";
 
 if (typeof document !== "undefined") {
     require("./lib/styles.scss");
@@ -220,6 +221,7 @@ export {
     SvgClose,
     SvgDoubleArrowLeft,
     SvgDoubleArrowRight,
+    SvgClock,
     Tree,
     TreeRenderable,
     Circle,
