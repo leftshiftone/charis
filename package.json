@@ -3,9 +3,6 @@
     "version": "0.92.0",
     "description": "Leftshift One React component library",
     "main": "dist/lib/all.js",
-    "dependencies": {
-        "@leftshiftone/convey": "^1.1.0"
-    },
     "devDependencies": {
         "@babel/cli": "7.2.3",
         "@babel/core": "7.7.4",
@@ -67,6 +64,9 @@
         "webpack-cli": "3.1.0",
         "webpack-dev-server": "3.1.5",
         "webpack-node-externals": "1.6.0"
+    },
+    "peerDependencies": {
+        "@leftshiftone/convey": "^1.1.1"
     },
     "scripts": {
         "copy-scss": "copyfiles -u 1 ./src/**/*.scss ./dist/lib && copyfiles -u 1 ./src/**/*.scss ./dist/lib-esm && copyfiles -u 1 ./src/**/**/*.scss ./dist/lib && copyfiles -u 1 ./src/**/**/*.scss ./dist/lib-esm && copyfiles -u 1 ./src/**/**/**/*.scss ./dist/lib && copyfiles -u 1 ./src/**/**/**/*.scss ./dist/lib-esm && copyfiles -u 1 ./src/**/**/**/**/*.scss ./dist/lib && copyfiles -u 1 ./src/**/**/**/**/*.scss ./dist/lib-esm",
