@@ -4,7 +4,7 @@
     "description": "Leftshift One React component library",
     "main": "dist/lib/all.js",
     "dependencies": {
-        "@leftshiftone/convey": "^1.1.0"
+        "@leftshiftone/convey": "^2.0.0"
     },
     "devDependencies": {
         "@babel/cli": "7.2.3",
