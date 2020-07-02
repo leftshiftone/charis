@@ -20,7 +20,6 @@ export default class Stackedbar extends React.Component<StackedbarProps, {}> {
             options.width = this.div.clientWidth * 0.98;
             options.height = this.div.clientHeight;
             options.data = this.props.data;
-            options.legend = false;
             options.textX = this.props.textX || "";
             options.textY = this.props.textY || "";
 
