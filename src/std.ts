@@ -87,51 +87,6 @@ import SvgClose from "./lib/element/svg/SvgClose";
 import Toast from "./lib/element/division/Toast";
 import SvgClock from "./lib/element/svg/SvgClock";
 
-if (typeof document !== "undefined") {
-    require("./lib/styles.scss");
-    require("./lib/element/image/Image.scss");
-    require("./lib/element/button/Button.scss");
-    require("./lib/element/button/Switch.scss");
-    require("./lib/element/input/Checkbox.scss");
-    require("./lib/element/input/Email.scss");
-    require("./lib/element/input/Password.scss");
-    require("./lib/element/input/Radiobutton.scss");
-    require("./lib/element/input/Text.scss");
-    require("./lib/element/navigation/BurgerMenu.scss");
-    require("./lib/element/select/Select.scss");
-    require("./lib/element/navigation/Dropdown.scss");
-    require("./lib/element/navigation/DropdownItem.scss");
-    require("./lib/layout/dashboard/widget/Widget.scss");
-    require("./lib/layout/dashboard/DashboardLayout.scss");
-    require("./lib/element/division/Right.scss");
-    require('./lib/element/division/Margin.scss');
-    require("./lib/element/mark/Mark.scss");
-    require("./lib/element/button/Toggle.scss");
-    require("./lib/element/textarea/Textarea.scss");
-    require("./lib/element/navigation/HorizontalNavigation.scss");
-    require("./lib/element/text/Small.scss");
-    require("./lib/element/text/Medium.scss");
-    require("./lib/element/navigation/VerticalNavigation.scss");
-    require("./lib/layout/admin/AdminLayout.scss");
-    require("./lib/layout/authn/AuthnLayout.scss");
-    require("./lib/layout/seventythirty/SeventyThirtyLayout.scss");
-    require('./lib/element/division/Modal.scss');
-    require('./lib/element/division/Toast.scss');
-    require("./lib/element/division/Group.scss");
-    require("./lib/element/text/Headline.scss");
-    require("./lib/element/division/Trigger.scss");
-    require("./lib/element/division/Accordion.scss");
-    require("./lib/element/division/Padding.scss");
-    require("./lib/element/division/Banner.scss");
-    require("./lib/element/division/Content.scss");
-    require("./lib/element/division/Tree.scss");
-    require("./lib/element/division/ContextMenu.scss");
-    require("./lib/element/division/Tooltip.scss");
-    require("./lib/element/division/container/SpinnerContainer.scss");
-    // vis
-    require("./lib/element/vis/Circle.scss");
-}
-
 export {
     ModalAssembly,
     ToastAssembly,
