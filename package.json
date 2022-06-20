@@ -42,7 +42,7 @@
         "parcel-bundler": "1.6.2",
         "react": "16.5.2",
         "react-dom": "16.5.2",
-        "release-it": "8.2.0",
+        "release-it": "10.3.1",
         "scss-bundle": "^3.1.2",
         "shx": "0.3.2",
         "sonarqube-scanner": "2.1.2",
