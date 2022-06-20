@@ -81,7 +81,7 @@ jobs:
           <<: *webhook-created
       - add_ssh_keys:
           fingerprints:
-            - "cd:1d:75:5d:07:32:e4:fb:27:87:7c:16:c3:4b:2d:12"
+            - "78:01:06:29:1e:90:b8:cb:9a:d6:20:2a:09:58:5b:2b"
       - checkout
       - run: git config --local user.email "ci@leftshift.one" && git config --local user.name "Continuous Integration"
       - run: yarn cleanup-release:major
@@ -107,7 +107,7 @@ jobs:
           <<: *webhook-created
       - add_ssh_keys:
           fingerprints:
-            - "cd:1d:75:5d:07:32:e4:fb:27:87:7c:16:c3:4b:2d:12"
+            - "78:01:06:29:1e:90:b8:cb:9a:d6:20:2a:09:58:5b:2b"
       - checkout
       - run: git config --local user.email "ci@leftshift.one" && git config --local user.name "Continuous Integration"
       - run: yarn cleanup-release:minor
@@ -133,7 +133,7 @@ jobs:
           <<: *webhook-created
       - add_ssh_keys:
           fingerprints:
-            - "cd:1d:75:5d:07:32:e4:fb:27:87:7c:16:c3:4b:2d:12"
+            - "78:01:06:29:1e:90:b8:cb:9a:d6:20:2a:09:58:5b:2b"
       - checkout
       - run: yarn cleanup-release:patch
       - run: git config --local user.email "ci@leftshift.one" && git config --local user.name "Continuous Integration"
